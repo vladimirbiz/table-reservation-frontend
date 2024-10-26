@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
+import RedZone from './RedZone';
+import YellowZone from './YellowZone';
+import GreenZone from './GreenZone';
 
 function App() {
   const [data, setData] = useState(null);
@@ -8,13 +11,12 @@ function App() {
 
     const changeData = async (id) => {
       setLoading(true); // Start loading animation
-
-      // Wait for 3 seconds before making the request
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      await new Promise(resolve => setTimeout(resolve, 5000));
 
       try {
           const response = await axios.put(`https://localhost:5001/my/${id}`);
-          setData(response.data); // Set the response data
+          setData(response.data);
+          return response; // Set the response data
       } catch (error) {
           console.error('There was an error fetching the data!', error);
           setError(error); // Set error if any
@@ -22,6 +24,23 @@ function App() {
           setLoading(false); // Stop loading animation
       }
   };
+  const getData = useCallback(async (id) => {
+    setLoading(true); // Start loading animation
+
+    // Wait for 3 seconds before making the request
+    await new Promise(resolve => setTimeout(resolve, 3000));
+
+    try {
+        const response = await axios.get(`https://localhost:5001/my/${id}`);
+        setData(response.data);
+        return response.data.value; // Set the response data
+    } catch (error) {
+        console.error('There was an error fetching the data!', error);
+        setError(error); // Set error if any
+    } finally {
+        setLoading(false); // Stop loading animation
+    }
+}, []);
 
     useEffect(() => {
       const fetchData = async () => {
@@ -42,15 +61,10 @@ function App() {
 
     return (
         <div>
-            {loading && <div>Loading...</div>} {/* Show loading animation */}
-            {error && <div>Error: {error.message}</div>} {/* Show error message */}
-            {data && <div>{JSON.stringify(data)}</div>} {/* Render data */}
             <div>
-              <button onClick={() => changeData(1)}>Change 1</button>
-              <button onClick={() => changeData(2)}>Change 2</button>
-              <button onClick={() => changeData(3)}>Change 3</button>
-              <button onClick={() => changeData(4)}>Change 4</button>
-              <button onClick={() => changeData(5)}>Change 5</button>
+            <RedZone changeData={changeData} getData={getData}/>
+            <YellowZone changeData={changeData} getData={getData}/>     
+            <GreenZone changeData={changeData} getData={getData}/>
             </div>
         </div>
     );
