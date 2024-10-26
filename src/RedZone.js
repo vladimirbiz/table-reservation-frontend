@@ -42,7 +42,7 @@ function RedZone({ changeData, getData }) {
     return (
       <div key={seatId} className={`seat ${isBlack ? 'black' : 'red'}`}>
         <button onClick={() => handleButtonClick(seatId)}>
-          Seat {i + 1}
+          {i + 1}
         </button>
       </div>
     );

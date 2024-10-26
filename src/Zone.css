@@ -1,19 +1,35 @@
-.green{
-    background-color: green;
-}
-.seat{
+.seat {
     display: inline-block;
     padding: 50px;
-    margin: 5px;
+    margin: 15px;
+    border-radius: 10px; /* Adjust the value as needed */
+    /* Optional: add a border or background color */
+    border: 1px solid #2b2b2b; /* Optional border */
+    background-color: #f0f0f0; /* Optional background color */
+}
+
+.green{
+    background-color: rgb(49, 214, 49);
 }
 .yellow{
-    background-color: yellow;
+    background-color: rgb(237, 237, 39);
 }
 .red{
-    background-color: red;
+    background-color: rgb(233, 39, 39);
 }
 
 .black{
     background-color: black;
-    color:wheat;
+    color: white;
+}
+
+button {
+    outline: none; /* Removes the outline */
+    border: none; /* Optional: Removes the border */
+    background: none; /* Optional: Removes the default button background */
+    cursor: pointer; /* Changes the cursor to pointer on hover */
+}
+
+.black, .black * {
+    color: white;
 }
