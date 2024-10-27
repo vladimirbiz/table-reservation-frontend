@@ -24,7 +24,14 @@ function RedZone({ changeData, getData }) {
   
 
   const handleButtonClick = async (seatId) => {
-    await changeData(seatId);
+    let value_for_seat = seatStates[seatId];
+        if(value_for_seat === 2){
+            value_for_seat = 0;
+        }
+        else{
+            value_for_seat +=1;
+        }
+    await changeData(seatId, value_for_seat);
     // Fetch the data for the clicked seat
     const data = await getData(seatId);
     // Update the seatStates with the fetched data
@@ -37,14 +44,13 @@ function RedZone({ changeData, getData }) {
 
   const seats = Array.from({ length: 87 }, (_, i) => {
     const seatId = i; // Adjust the seat ID
-    const isBlack = seatStates[seatId] === true; // Check if seat data is true
+    const isBlack = seatStates[seatId] === 2;
+    const isWhite = seatStates[seatId] === 1; // Check if seat data is true
 
     return (
-      <div key={seatId} className={`seat ${isBlack ? 'black' : 'red'}`}>
-        <button onClick={() => handleButtonClick(seatId)}>
+        <button key={seatId} className={`seat ${isBlack ? 'black' : isWhite ? "white" : "red"}`} onClick={() => handleButtonClick(seatId)}>
           {i + 1}
         </button>
-      </div>
     );
   });
 

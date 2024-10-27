@@ -1,21 +1,24 @@
 .seat {
+    width: 40px;
+    height: 40px;
     display: inline-block;
     padding: 5px;
     margin: 15px;
-    border-radius: 10px; /* Adjust the value as needed */
+    border-radius: 20px; /* Adjust the value as needed */
     /* Optional: add a border or background color */
-    border: 1px solid #2b2b2b; /* Optional border */
     background-color: #f0f0f0; /* Optional background color */
+    align-items: center;
+    font-weight: 700;
 }
 
 .green{
-    background-color: rgb(49, 214, 49);
+    background-color: rgb(149, 227, 149);
 }
 .yellow{
-    background-color: rgb(237, 237, 39);
+    background-color: rgb(234, 234, 156);
 }
 .red{
-    background-color: rgb(233, 39, 39);
+    background-color: rgb(243, 185, 185);
 }
 
 .black{

@@ -25,7 +25,16 @@ function GreenZone({ changeData, getData }) {
 
     const handleButtonClick = async (index) => {
         const seatId = index + 138; // Calculate the actual seat ID for the API
-        await changeData(seatId); // Update the seat state in the API
+        console.log("//////////////////////////////////////");
+        console.log(seatStates[seatId]);
+        let value_for_seat = seatStates[index];
+        if(value_for_seat === 2){
+            value_for_seat = 0;
+        }
+        else{
+            value_for_seat +=1;
+        }
+        await changeData(seatId, value_for_seat); // Update the seat state in the API
         const data = await getData(seatId); // Fetch the updated data for the clicked seat
         // Update the seatStates with the fetched data
         setSeatStates((prev) => {
@@ -37,14 +46,13 @@ function GreenZone({ changeData, getData }) {
 
     const seats = Array.from({ length: totalSeats }, (_, index) => {
         const seatId = index; // Use local index for seatStates
-        const isBlack = seatStates[seatId] === true; // Check if seat data is true
+        const isBlack = seatStates[seatId] === 2; // Check if seat data is true
+        const isWhite = seatStates[seatId] === 1;
 
         return (
-            <div key={index + 138} className={`seat ${isBlack ? 'black' : 'green'}`}>
-                <button onClick={() => handleButtonClick(seatId)}>
+                <button key={index + 138} className={`seat ${isBlack ? 'black' : isWhite ? "white" : "green"}`} onClick={() => handleButtonClick(seatId)}>
                     {index + 1}
                 </button>
-            </div>
         );
     });
 

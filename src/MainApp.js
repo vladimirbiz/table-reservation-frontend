@@ -10,12 +10,12 @@ function MainApp({token}) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const changeData = async (id) => {
+    const changeData = async (id, value) => {
       setLoading(true); // Start loading animation
       await new Promise(resolve => setTimeout(resolve, 1000));
-
+      value = Number(value);
       try {
-          const response = await axios.put(`https://localhost:5001/my/${id}`);
+          const response = await axios.put(`https://localhost:5001/my/${id}/${value}`);
           setData(response.data);
           return response; // Set the response data
       } catch (error) {
