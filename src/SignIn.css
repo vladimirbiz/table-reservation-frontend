@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.form-container {
+    width: 30vw;           /* Set a fixed width for the form */
+    padding: 20px;          /* Add padding around the form */
+    border: 1px solid black; /* Black border around the form */
+    border-radius: 5px;     /* Rounded corners */
+    background-color: white; /* White background for the form */
+    margin: auto;
+    margin-top: 15vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 5vw;
+}
+
+label {
+    display: block;          /* Make labels block elements */
+    margin: 10px 0 5px;     /* Space above and below labels */
+}
+
+input, textarea {
+    width: 100%;             /* Full width of the form */
+    padding: 10px;           /* Padding inside inputs */
+    margin-bottom: 15px;     /* Space below inputs */
+    border: 1px solid black;  /* Black border for inputs */
+    border-radius: 3px;      /* Rounded corners */
+    font-size: 16px;         /* Font size */
+}
+
+.formButton {
+    width: 100%;             /* Full width of the button */
+    padding: 10px;           /* Padding inside the button */
+    border: none;            /* Remove default border */
+    background-color: black; /* Black background */
+    color: white;            /* White text */
+    font-size: 16px;         /* Font size */
+    cursor: pointer;         /* Change cursor to pointer */
+    border-radius: 3px;      /* Rounded corners */
+}
+
+button:hover {
+    background-color: gray;  /* Change background on hover */
+}

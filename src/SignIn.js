@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./SignIn.css";
 
 const SignIn = ({ onSignIn }) => {
     const [email, setEmail] = useState('');
@@ -29,7 +30,9 @@ const SignIn = ({ onSignIn }) => {
     
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div className='form-container'>
+        <h1 className='signInh1'>Sign In</h1>
+        <form className="styledForm" onSubmit={handleSubmit}>
             <div>
                 <label>Email:</label>
                 <input
@@ -49,8 +52,9 @@ const SignIn = ({ onSignIn }) => {
                 />
             </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <button type="submit">Sign In</button>
+            <button className='formButton' type="submit">Sign In</button>
         </form>
+        </div>
     );
 };
 
