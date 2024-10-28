@@ -5,6 +5,7 @@ import YellowZone from './YellowZone';
 import GreenZone from './GreenZone';
 import Divider from './Divider';
 import masiImage from './masi.png'; // Import the image
+import "./SignIn.css";
 
 function MainApp({ token }) {
     const [data, setData] = useState(null);
@@ -78,24 +79,26 @@ function MainApp({ token }) {
                 <div className='glava'><span className='seat'></span> <div>Rezervirana</div> </div>
                 <div className='glava'><span className='seat black'></span> <div>Zafatena</div></div>
                 </div>
-                <img src={masiImage} className='slika' alt="Description of image" /> {/* Use the imported image */}
+                <img src={masiImage} className='slika' alt="Description of image" onError={(e) => { e.target.onerror = null; e.target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdaTZdJNs3SkXMeBQN7z8OuYtIseUa8KSmrA&s" }} /> {/* Use the imported image */}
                 </div>
                 </div>
             </div>
-            <div className="seat-block">
+            <div  className="seat-block">
+            <div>
                 <Divider color={"red"} />
                 <RedZone changeData={changeData} getData={getData} />
                 <Divider color={"red"} />
             </div>
-            <div className="seat-block">
+            <div>
                 <Divider color={"yellow"} />
                 <YellowZone changeData={changeData} getData={getData} />
                 <Divider color={"yellow"} />
             </div>
-            <div className="seat-block">
+            <div>
                 <Divider color={"green"} />
                 <GreenZone changeData={changeData} getData={getData} />
                 <Divider color={"green"} />
+            </div>
             </div>
         </div>
     );

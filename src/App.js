@@ -9,13 +9,13 @@ function App() {
         setToken(token);
         localStorage.setItem('YourSecretKey1', token); // Save token in localStorage
     };
-
+  
     return (
         <div>
             {!token ? (
                 <SignIn onSignIn={handleSignIn} />
             ) : (
-                <MainApp token={token} /> // Pass the token to MainApp
+                <MainApp token={token}/> // Pass the token to MainApp
             )}
         </div>
     );
