@@ -7,7 +7,8 @@ function App() {
 
     const handleSignIn = (token) => {
         setToken(token);
-        localStorage.setItem('YourSecretKey1', token); // Save token in localStorage
+        localStorage.setItem('Token', token); // Save token in localStorage
+        console.log({localStorage});
     };
   
     return (

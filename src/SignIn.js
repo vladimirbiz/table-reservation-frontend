@@ -9,7 +9,7 @@ const SignIn = ({ onSignIn }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://localhost:5001/my/login', {
+            const response = await fetch('https://localhost:5001/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -22,7 +22,8 @@ const SignIn = ({ onSignIn }) => {
             }
     
             const data = await response.json();
-            onSignIn(data.token);
+            console.log(data);
+            onSignIn(data.accessToken);
         } catch (err) {
             setError(err.message);
         }

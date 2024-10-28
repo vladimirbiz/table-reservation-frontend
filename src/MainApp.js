@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import axios from 'axios';
 import RedZone from './RedZone';
 import YellowZone from './YellowZone';
@@ -8,78 +8,58 @@ import masiImage from './masi.png'; // Import the image
 import "./SignIn.css";
 
 function MainApp({ token }) {
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     const changeData = async (id, value) => {
-        setLoading(true); // Start loading animation
         await new Promise(resolve => setTimeout(resolve, 1000));
-        value = Number(value);
+        console.log("Value is " + value);
         try {
-            const response = await axios.put(`https://localhost:5001/my/${id}/${value}`);
-            setData(response.data);
-            return response; // Set the response data
+            const response = await axios.put(`https://localhost:5001/my/${id}/${value}`, {}, { // Add empty object here
+                headers: {
+                    Authorization: `Bearer ${token}` // Include the token in the request header
+                }
+            });
+            return response; 
         } catch (error) {
             console.error('There was an error fetching the data!', error);
-            setError(error); // Set error if any
-        } finally {
-            setLoading(false); // Stop loading animation
         }
     };
+    
 
     const getData = useCallback(async (id) => {
-        setLoading(true); // Start loading animation
 
         // Wait for 3 seconds before making the request
         await new Promise(resolve => setTimeout(resolve, 1000));
 
         try {
-            const response = await axios.get(`https://localhost:5001/my/${id}`);
-            setData(response.data);
+            const response = await axios.get(`https://localhost:5001/my/${id}`,{
+                headers:{
+                    Authorization : `Bearer ${token}`
+                }
+            });
             return response.data.value; // Set the response data
         } catch (error) {
             console.error('There was an error fetching the data!', error);
-            setError(error); // Set error if any
         } finally {
-            setLoading(false); // Stop loading animation
         }
-    }, []);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true); // Start loading animation
-
-            try {
-                const response = await axios.get('https://localhost:5001/my');
-                setData(response.data); // Set the response data
-            } catch (error) {
-                console.error('There was an error fetching the data!', error);
-                setError(error); // Set error if any
-            } finally {
-                setLoading(false); // Stop loading animation
-            }
-        };
-        fetchData();
-    }, []);
+    }, [token]);
 
     return (
         <div>
             
             <div>
                 <h1>Reservations for Mahmut Orhan</h1>
-                <div class="container">
+                <div className="container">
 
                 <div className='container'>
 
-                <div class="item">
+                <div className="item">
                 <div className='glava'><span className='seat green'></span> <div>Zelena Zona</div></div>
                 <div className='glava'><span className='seat yellow'></span> <div>Zolta Zona</div></div>
                 <div className='glava'><span className='seat red'></span> <div>Crvena Zona</div></div>
                 <div className='glava'><span className='seat'></span> <div>Rezervirana</div> </div>
                 <div className='glava'><span className='seat black'></span> <div>Zafatena</div></div>
                 </div>
-                <img src={masiImage} className='slika' alt="Description of image" onError={(e) => { e.target.onerror = null; e.target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdaTZdJNs3SkXMeBQN7z8OuYtIseUa8KSmrA&s" }} /> {/* Use the imported image */}
+                <img src={masiImage} className='slika' alt="Description" onError={(e) => { e.target.onerror = null; e.target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdaTZdJNs3SkXMeBQN7z8OuYtIseUa8KSmrA&s" }} /> {/* Use the imported image */}
                 </div>
                 </div>
             </div>
@@ -96,7 +76,7 @@ function MainApp({ token }) {
             </div>
             <div>
                 <Divider color={"green"} />
-                <GreenZone changeData={changeData} getData={getData} />
+                <GreenZone changeData={changeData} getData={getData}/>
                 <Divider color={"green"} />
             </div>
             </div>

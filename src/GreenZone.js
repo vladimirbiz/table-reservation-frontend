@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./Zone.css";
 
-function GreenZone({ changeData, getData }) {
+function GreenZone({ changeData, getData}) {
     const totalSeats = 9; // Total seats in this zone (from 138 to 146)
     const [seatStates, setSeatStates] = useState(Array(totalSeats).fill(null)); // Initialize state for 9 seats
 
