@@ -48,7 +48,7 @@ function RedZone({ changeData, getData }) {
     const isWhite = seatStates[seatId] === 1; // Check if seat data is true
 
     return (
-        <button key={seatId} className={`seat ${isBlack ? 'black' : isWhite ? "white" : "red"}`} onClick={() => handleButtonClick(seatId)}>
+        <button key={seatId} className={`seat ${isBlack? 'black' : isWhite ? "white" : "white-red"}`} onClick={() => handleButtonClick(seatId)}>
           {i + 1}
         </button>
     );

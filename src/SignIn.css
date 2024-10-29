@@ -3,8 +3,9 @@
 }
 
 .form-container {
-    width: 30vw;           /* Set a fixed width for the form */
-    padding: 20px;          /* Add padding around the form */
+    width: 30vw;
+    min-width: 200px;
+    height:60vh;           /* Set a fixed width for the form */         /* Add padding around the form */
     border: 1px solid black; /* Black border around the form */
     border-radius: 5px;     /* Rounded corners */
     background-color: white; /* White background for the form */

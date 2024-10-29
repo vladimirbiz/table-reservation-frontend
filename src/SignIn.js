@@ -53,7 +53,7 @@ const SignIn = ({ onSignIn }) => {
                 />
             </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <button className='formButton' type="submit">Sign In</button>
+            <div><button className='formButton' type="submit">Sign In</button></div>
         </form>
         </div>
     );

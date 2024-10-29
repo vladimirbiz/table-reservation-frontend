@@ -9,19 +9,47 @@
     background-color: #f0f0f0; /* Optional background color */
     align-items: center;
     font-weight: 700;
+    border:  2px solid black;
 }
 .divider{
-    margin:10px;
-    padding:10px;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:13vh;
+    margin-bottom:2vh;
+    padding:1px;
 }
 .green{
-    background-color: rgb(149, 227, 149);
+    background-color: rgb(62, 172, 62);
+    color: white;
+}
+.white-green{
+    color: rgb(62, 172, 62);
+    background-color: white;
+    border-color: rgb(62, 172, 62);
+}
+
+.white-red{
+    color: rgb(195, 38, 38);
+    background-color: white;
+    border-color: rgb(195, 38, 38);
+}
+
+.white-yellow{
+    color: rgb(207, 207, 30);
+    background-color: white;
+    border-color:rgb(207, 207, 30);
+}
+
+.white{
+    color:black;
+    background-color: white;
+    border-color: black;
 }
 .yellow{
-    background-color: rgb(234, 234, 156);
+    background-color: rgb(207, 207, 30);
 }
 .red{
-    background-color: rgb(243, 185, 185);
+    background-color: rgb(195, 38, 38);
 }
 
 .black{
@@ -58,7 +86,7 @@ button {
 h1{
     text-align: center;
     color: rgb(67, 50, 50);
-    margin-top: 5vh;
+    margin-top: 10vh;
     margin-bottom: 8vh;
 }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SignIn from './SignIn';
 import MainApp from './MainApp';
+import "./App.css";
 
 function App() {
     const [token, setToken] = useState(null);

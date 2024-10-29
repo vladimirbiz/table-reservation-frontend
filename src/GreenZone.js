@@ -25,8 +25,6 @@ function GreenZone({ changeData, getData}) {
 
     const handleButtonClick = async (index) => {
         const seatId = index + 138; // Calculate the actual seat ID for the API
-        console.log("//////////////////////////////////////");
-        console.log(seatStates[seatId]);
         let value_for_seat = seatStates[index];
         if(value_for_seat === 2){
             value_for_seat = 0;
@@ -50,7 +48,7 @@ function GreenZone({ changeData, getData}) {
         const isWhite = seatStates[seatId] === 1;
 
         return (
-                <button key={index + 138} className={`seat ${isBlack ? 'black' : isWhite ? "white" : "green"}`} onClick={() => handleButtonClick(seatId)}>
+                <button key={index + 138} className={`seat ${isBlack? 'black' : isWhite ? "white" : "white-green"}`} onClick={() => handleButtonClick(seatId)}>
                     {index + 1}
                 </button>
         );

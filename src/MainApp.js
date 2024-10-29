@@ -18,6 +18,7 @@ function MainApp({ token }) {
                     Authorization: `Bearer ${token}` // Include the token in the request header
                 }
             });
+            console.log(response);
             return response; 
         } catch (error) {
             console.error('There was an error fetching the data!', error);
@@ -43,41 +44,51 @@ function MainApp({ token }) {
         }
     }, [token]);
 
+    const handleReset = async () => {
+        try {
+            const response = await fetch('https://localhost:5001/my/reset', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Error details:', errorData);
+                throw new Error('Failed to reset tables');
+            }
+    
+            const data = await response.json();
+            alert(data.Message); // Display success message
+        } catch (error) {
+            console.error('Error resetting tables:', error);
+            alert('Error resetting tables. Please try again.');
+        }
+    };
+    
+    
+
     return (
         <div>
             
             <div>
-                <h1>Reservations for Mahmut Orhan</h1>
-                <div className="container">
-
-                <div className='container'>
-
-                <div className="item">
-                <div className='glava'><span className='seat green'></span> <div>Zelena Zona</div></div>
-                <div className='glava'><span className='seat yellow'></span> <div>Zolta Zona</div></div>
-                <div className='glava'><span className='seat red'></span> <div>Crvena Zona</div></div>
-                <div className='glava'><span className='seat'></span> <div>Rezervirana</div> </div>
-                <div className='glava'><span className='seat black'></span> <div>Zafatena</div></div>
-                </div>
-                <img src={masiImage} className='slika' alt="Description" onError={(e) => { e.target.onerror = null; e.target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdaTZdJNs3SkXMeBQN7z8OuYtIseUa8KSmrA&s" }} /> {/* Use the imported image */}
-                </div>
-                </div>
+                <h1>Table Reservations - Intermezzo</h1>
             </div>
             <div  className="seat-block">
             <div>
-                <Divider color={"red"} />
+                <Divider color={"black"} />
                 <RedZone changeData={changeData} getData={getData} />
-                <Divider color={"red"} />
+                <Divider color={"black"} />
             </div>
             <div>
-                <Divider color={"yellow"} />
                 <YellowZone changeData={changeData} getData={getData} />
-                <Divider color={"yellow"} />
+                <Divider color={"black"} />
             </div>
             <div>
-                <Divider color={"green"} />
                 <GreenZone changeData={changeData} getData={getData}/>
-                <Divider color={"green"} />
+                <Divider color={"black"} />
             </div>
             </div>
         </div>
