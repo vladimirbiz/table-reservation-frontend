@@ -9,7 +9,7 @@ const SignIn = ({ onSignIn }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://localhost:5001/api/login', {
+            const response = await fetch('https://tables-api-latest.onrender.com/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ const SignIn = ({ onSignIn }) => {
         <h1 className='signInh1'>Sign In</h1>
         <form className="styledForm" onSubmit={handleSubmit}>
             <div>
-                <label>Email:</label>
+                <label>Email</label>
                 <input
                     type="email"
                     value={email}
@@ -44,7 +44,7 @@ const SignIn = ({ onSignIn }) => {
                 />
             </div>
             <div>
-                <label>Password:</label>
+                <label>Password</label>
                 <input
                     type="password"
                     value={password}

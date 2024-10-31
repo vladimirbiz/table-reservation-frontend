@@ -54,7 +54,7 @@ function RedZone({ changeData, getData }) {
     );
   });
 
-  return <div>{seats}</div>;
+  return <div className='seatDiv'>{seats}</div>;
 }
 
 export default RedZone;

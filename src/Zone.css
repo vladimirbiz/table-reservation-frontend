@@ -1,21 +1,14 @@
 .seat {
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    padding: 5px;
+    width: 46px;
+    height: 46px;
     margin: 15px;
-    border-radius: 20px; /* Adjust the value as needed */
-    /* Optional: add a border or background color */
-    background-color: #f0f0f0; /* Optional background color */
-    align-items: center;
+    border-radius: 22px; /* Adjust the value as needed */
     font-weight: 700;
     border:  2px solid black;
 }
 .divider{
-    margin-left:10px;
-    margin-right:10px;
-    margin-top:13vh;
-    margin-bottom:2vh;
+    margin-top:6vh;
+    margin-bottom:6vh;
     padding:1px;
 }
 .green{
@@ -64,20 +57,9 @@ button {
     cursor: pointer; /* Changes the cursor to pointer on hover */
 }
 
+
 .black, .black * {
     color: white;
-}
-
-.container {
-    display: flex;          /* Use Grid */
-    align-items: center;
-    justify-content: center;
-    width: 100%;          /* Full width of the parent */
-}
-
-.item {
-    padding: 10px;  
-    margin-right: 20vw;     /* Optional padding */
 }
 
 .slika {
@@ -90,8 +72,22 @@ h1{
     margin-bottom: 8vh;
 }
 
+.mainh1{
+    margin-top:10vh;
+    margin-bottom: 10vh;
+}
+
 .seat-block{
     margin-top: 5vh;
-    margin-left: 10vw;
-    margin-right:10vw;
+    margin-left: 12vw;
+    margin-right:12vw;
+    padding: 0px;
+}
+
+.seatDiv{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    flex-wrap: wrap; /* Wrap buttons if needed */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
 }

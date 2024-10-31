@@ -54,7 +54,7 @@ function GreenZone({ changeData, getData}) {
         );
     });
 
-    return <div>{seats}</div>;
+    return <div className='seatDiv'>{seats}</div>;
 }
 
 export default GreenZone;
