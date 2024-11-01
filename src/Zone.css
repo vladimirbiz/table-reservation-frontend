@@ -15,6 +15,12 @@
     background-color: rgb(62, 172, 62);
     color: white;
 }
+
+.blank{
+    color: whitesmoke;
+    background-color: whitesmoke;
+    border-color: whitesmoke;
+}
 .white-green{
     color: rgb(62, 172, 62);
     background-color: white;
@@ -89,5 +95,5 @@ h1{
     justify-content: center; /* Center horizontally */
     flex-wrap: wrap; /* Wrap buttons if needed */
     padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
+    margin: 10vh; /* Remove margin */
 }

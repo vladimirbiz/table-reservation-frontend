@@ -54,7 +54,7 @@ input, textarea {
 }
 
 .loading-bar-container {
-    width: 80vw;
+    width: 60vw;
     height: 100vh;
     background-color: #ffffff;
     border-radius: 20px;
@@ -65,7 +65,7 @@ input, textarea {
 .loading-bar {
     height: 8px;
     background-color: #000000;
-    animation: loading 2.2s linear infinite;
+    animation: loading 3s linear infinite;
 }
 
 @keyframes loading {
@@ -73,6 +73,6 @@ input, textarea {
         width: 0;
     }
     100% {
-        width: 80vw;
+        width: 80%;
     }
 }

@@ -8,10 +8,21 @@ import "./SignIn.css";
 
 function MainApp({ token }) {
     const [loading, setLoading] = useState(false); // Loading state
+    const [loading2, setLoading2] = useState(false); // Loading state
+    const [loading3, setLoading3] = useState(false); // Loading state
     const [initialData, setInitialData] = useState(null);
 
     const changeData = async (id, value) => {
-        setLoading(true); // Start loading
+        if(id < 87){
+            setLoading(true);
+        }
+        else if(id < 138)
+        {
+            setLoading2(true);
+        }
+        else{
+            setLoading3(true);
+        }
         await new Promise(resolve => setTimeout(resolve, 1050));
         try {
             const response = await axios.put(`https://localhost:5001/tables/${id}/${value}`, {}, {
@@ -40,7 +51,9 @@ function MainApp({ token }) {
             } catch (error) {
                 console.error('Failed to fetch initial data:', error);
             } finally {
-                setLoading(false);
+                setLoading(false); // End loading
+            setLoading2(false); // End loading
+            setLoading3(false); // End loading
             }
         };
 
@@ -50,7 +63,16 @@ function MainApp({ token }) {
     
 
     const getData = useCallback(async (id) => {
-        setLoading(true); // Start loading
+        if(id < 87){
+            setLoading(true);
+        }
+        else if(id < 138)
+        {
+            setLoading2(true);
+        }
+        else{
+            setLoading3(true);
+        }
         await new Promise(resolve => setTimeout(resolve, 1050));
         try {
             const response = await axios.get(`https://localhost:5001/tables/${id}`, {
@@ -63,6 +85,8 @@ function MainApp({ token }) {
             console.error('There was an error fetching the data!', error);
         } finally {
             setLoading(false); // End loading
+            setLoading2(false); // End loading
+            setLoading3(false); // End loading
         }
     }, [token]);
 
@@ -95,28 +119,57 @@ function MainApp({ token }) {
 
     return (
         <div>
-            <div>
-                <h1 className='mainh1'>Table Reservations - Intermezzo</h1>
-            </div>
-            {loading && <div className="loading-bar-container">
-    <div className="loading-bar"></div>
-</div>} {/* Loading indicator */}
-            <div className="seat-block">
-                <div>
-                    <Divider color={"black"} />
-                    <RedZone changeData={changeData} getData={getData} initialData={initialData}/>
-                    <Divider color={"black"} />
-                </div>
-                <div>
-                    <YellowZone changeData={changeData} getData={getData} initialData={initialData} />
-                    <Divider color={"black"} />
-                </div>
-                <div>
-                    <GreenZone changeData={changeData} getData={getData} initialData={initialData} />
-                    <Divider color={"black"} />
-                </div>
-            </div>
+    <h1 className='mainh1'>Table Reservations - Intermezzo</h1>
+    
+    <div className="seat-block">
+        {/* Red Zone Section */}
+        <div>
+        {loading ? (
+    <div className="loading-bar-container">
+        <div className="loading-bar"></div>
+    </div>
+) : (
+    <>
+        <Divider color={"black"} />
+        <RedZone changeData={changeData} getData={getData} initialData={initialData} />
+        <Divider color={"black"} />
+    </>
+)}
+
         </div>
+
+        {/* Yellow Zone Section */}
+        <div>
+        {loading2 ? (
+    <div className="loading-bar-container">
+        <div className="loading-bar"></div>
+    </div>
+) : (
+    <>
+        <YellowZone changeData={changeData} getData={getData} initialData={initialData} />
+    </>
+)}
+
+        </div>
+
+        {/* Green Zone Section */}
+        <div>
+        {loading3 ? (
+    <div className="loading-bar-container">
+        <div className="loading-bar"></div>
+    </div>
+) : (
+    <>
+        <Divider color={"black"} />
+        <GreenZone changeData={changeData} getData={getData} initialData={initialData} />
+        <Divider color={"black"} />
+    </>
+)}
+
+        </div>
+    </div>
+</div>
+
     );
 }
 

@@ -46,11 +46,12 @@ function YellowZone({ changeData, getData, initialData }) {
       const seatId = index + 1; // Seat IDs should be 1 through 87
       const isBlack = state === 2;
       const isWhite = state === 1;
+      const isYellow = state === 0;
   
       return (
         <button 
           key={seatId} 
-          className={`seat ${isBlack ? 'black' : isWhite ? "white" : "white-yellow"}`} 
+          className={`seat ${isBlack ? 'black' : isWhite ? "white" : isYellow ? "white-yellow" : "blank"}`} 
           onClick={() => handleButtonClick(seatId - 1)}
         >
           {seatId}
