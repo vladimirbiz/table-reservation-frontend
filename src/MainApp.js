@@ -7,22 +7,11 @@ import Divider from './Divider';
 import "./SignIn.css";
 
 function MainApp({ token }) {
-    const [loading, setLoading] = useState(false); // Loading state
-    const [loading2, setLoading2] = useState(false); // Loading state
-    const [loading3, setLoading3] = useState(false); // Loading state
+    const [loading, setLoading] = useState(true); // Loading state
     const [initialData, setInitialData] = useState(null);
 
     const changeData = async (id, value) => {
-        if(id < 87){
-            setLoading(true);
-        }
-        else if(id < 138)
-        {
-            setLoading2(true);
-        }
-        else{
-            setLoading3(true);
-        }
+        setLoading(true);
         await new Promise(resolve => setTimeout(resolve, 1050));
         try {
             const response = await axios.put(`https://localhost:5001/tables/${id}/${value}`, {}, {
@@ -52,8 +41,6 @@ function MainApp({ token }) {
                 console.error('Failed to fetch initial data:', error);
             } finally {
                 setLoading(false); // End loading
-            setLoading2(false); // End loading
-            setLoading3(false); // End loading
             }
         };
 
@@ -63,16 +50,7 @@ function MainApp({ token }) {
     
 
     const getData = useCallback(async (id) => {
-        if(id < 87){
-            setLoading(true);
-        }
-        else if(id < 138)
-        {
-            setLoading2(true);
-        }
-        else{
-            setLoading3(true);
-        }
+        setLoading(true);
         await new Promise(resolve => setTimeout(resolve, 1050));
         try {
             const response = await axios.get(`https://localhost:5001/tables/${id}`, {
@@ -85,8 +63,6 @@ function MainApp({ token }) {
             console.error('Error fetching data!', error);
         } finally {
             setLoading(false); // End loading
-            setLoading2(false); // End loading
-            setLoading3(false); // End loading
         }
     }, [token]);
 
@@ -118,15 +94,14 @@ function MainApp({ token }) {
     };
 
     useEffect(() => {
-        const fetchInitialData = async () => {
-            setInitialLoading(true); // Start loading for initial fetch
+        const fetchInitialData = async () => { // Start loading for initial fetch
             try {
                 // Call getData for the initial load
                 await getData('*'); // Replace 'initialId' with the actual ID you want to fetch
             } catch (error) {
                 console.error('Error fetching initial data!', error);
             } finally {
-                setInitialLoading(false); // End initial loading
+                setLoading(false); // End initial loading
         }
     };
 
@@ -138,50 +113,28 @@ function MainApp({ token }) {
     <h1 className='mainh1'>Table Reservations - Intermezzo</h1>
     
     <div className="seat-block">
-        {/* Red Zone Section */}
-        <div>
-        {loading ? (
+    {loading && (
     <div className="loading-bar-container">
         <div className="loading-bar"></div>
     </div>
-) : (
-    <>
+)}
+        {/* Red Zone Section */}
+        <div>
         <Divider color={"black"} />
         <RedZone changeData={changeData} getData={getData} initialData={initialData} />
         <Divider color={"black"} />
-    </>
-)}
-
         </div>
 
         {/* Yellow Zone Section */}
         <div>
-        {loading2 ? (
-    <div className="loading-bar-container">
-        <div className="loading-bar"></div>
-    </div>
-) : (
-    <>
         <YellowZone changeData={changeData} getData={getData} initialData={initialData} />
-    </>
-)}
-
         </div>
 
         {/* Green Zone Section */}
         <div>
-        {loading3 ? (
-    <div className="loading-bar-container">
-        <div className="loading-bar"></div>
-    </div>
-) : (
-    <>
         <Divider color={"black"} />
         <GreenZone changeData={changeData} getData={getData} initialData={initialData} />
         <Divider color={"black"} />
-    </>
-)}
-
         </div>
     </div>
 </div>
