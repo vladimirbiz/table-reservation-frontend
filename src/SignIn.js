@@ -52,7 +52,7 @@ const SignIn = ({ onSignIn }) => {
                     required
                 />
             </div>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {error && <p className= "errorP">{error}</p>}
             <div><button className='formButton' type="submit">Sign In</button></div>
         </form>
         </div>
