@@ -112,7 +112,7 @@ function MainApp({ token }) {
                     <Divider color={"black"} />
                 </div>
                 <div>
-                    <GreenZone changeData={changeData} getData={getData} />
+                    <GreenZone changeData={changeData} getData={getData} initialData={initialData} />
                     <Divider color={"black"} />
                 </div>
             </div>
