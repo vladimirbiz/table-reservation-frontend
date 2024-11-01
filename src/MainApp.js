@@ -13,7 +13,6 @@ function MainApp({ token }) {
     const changeData = async (id, value) => {
         setLoading(true); // Start loading
         await new Promise(resolve => setTimeout(resolve, 1050));
-        console.log("Value is " + value);
         try {
             const response = await axios.put(`https://localhost:5001/tables/${id}/${value}`, {}, {
                 headers: {
@@ -37,8 +36,7 @@ function MainApp({ token }) {
                         Authorization: `Bearer ${token}`
                     }
                 });
-                console.log(response.data);
-                setInitialData(response.data);
+                setInitialData(response.data); // Set initialData directly
             } catch (error) {
                 console.error('Failed to fetch initial data:', error);
             } finally {
@@ -48,10 +46,7 @@ function MainApp({ token }) {
 
         fetchInitialData();
     }, [token]);
-
-    useEffect(() => {
-        console.log(initialData); // This will log the updated value when it changes
-    }, [initialData]);
+        
     
 
     const getData = useCallback(async (id) => {
@@ -113,7 +108,7 @@ function MainApp({ token }) {
                     <Divider color={"black"} />
                 </div>
                 <div>
-                    <YellowZone changeData={changeData} getData={getData} />
+                    <YellowZone changeData={changeData} getData={getData} initialData={initialData} />
                     <Divider color={"black"} />
                 </div>
                 <div>
