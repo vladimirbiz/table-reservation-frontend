@@ -19,19 +19,19 @@ function YellowZone({ changeData, getData, initialData }) {
     }, [initialData]);
   
     const handleButtonClick = async (seatId) => {
-      let value_for_seat = seatStates[seatId];
+      let value_for_seat = seatStates[(seatId + 87)];
       if (typeof value_for_seat !== 'number') {
         value_for_seat = 0; // Default to 0 if not a number
       }
   
       // Increment or reset the value for the seat
-      value_for_seat = (value_for_seat === 2) ? 0 : value_for_seat + 1;
+      value_for_seat = (value_for_seat == 2) ? 0 : value_for_seat + 1;
   
       // Call changeData with seatId and value_for_seat
-      await changeData(seatId, value_for_seat);
+      await changeData((seatId + 87), value_for_seat);
   
       // Fetch the updated data for the clicked seat
-      const data = await getData(seatId);
+      const data = await getData(seatId + 87);
       
       // Update the seatStates with the fetched data
       setSeatStates((prev) => {

@@ -25,7 +25,7 @@ function RedZone({ changeData, getData, initialData }) {
     }
 
     // Increment or reset the value for the seat
-    value_for_seat = (value_for_seat === 2) ? 0 : value_for_seat + 1;
+    value_for_seat = (value_for_seat == 2) ? 0 : value_for_seat + 1;
 
     // Call changeData with seatId and value_for_seat
     await changeData(seatId, value_for_seat);
