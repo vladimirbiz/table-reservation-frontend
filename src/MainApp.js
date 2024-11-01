@@ -14,7 +14,7 @@ function MainApp({ token }) {
         await new Promise(resolve => setTimeout(resolve, 1050));
         console.log("Value is " + value);
         try {
-            const response = await axios.put(`https://tables-api-latest.onrender.com/my/${id}/${value}`, {}, {
+            const response = await axios.put(`https://localhost:5001/tables/${id}/${value}`, {}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -32,7 +32,7 @@ function MainApp({ token }) {
         setLoading(true); // Start loading
         await new Promise(resolve => setTimeout(resolve, 1050));
         try {
-            const response = await axios.get(`https://tables-api-latest.onrender.com/my/${id}`, {
+            const response = await axios.get(`https://localhost:5001/tables/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -48,7 +48,7 @@ function MainApp({ token }) {
     const handleReset = async () => {
         setLoading(true); // Start loading
         try {
-            const response = await fetch('https://localhost:5001/my/reset', {
+            const response = await fetch('https://localhost:5001/tables/reset', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
