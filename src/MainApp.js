@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import RedZone from './RedZone';
 import YellowZone from './YellowZone';
@@ -8,18 +8,18 @@ import "./SignIn.css";
 
 function MainApp({ token }) {
     const [loading, setLoading] = useState(false); // Loading state
+    const [initialData, setInitialData] = useState(null);
 
     const changeData = async (id, value) => {
         setLoading(true); // Start loading
         await new Promise(resolve => setTimeout(resolve, 1050));
         console.log("Value is " + value);
         try {
-            const response = await axios.put(`https://tables-api-latest.onrender.com/my/${id}/${value}`, {}, {
+            const response = await axios.put(`https://localhost:5001/tables/${id}/${value}`, {}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(response);
             return response; 
         } catch (error) {
             console.error('There was an error fetching the data!', error);
@@ -28,11 +28,37 @@ function MainApp({ token }) {
         }
     };
 
+    useEffect(() => {
+        const fetchInitialData = async () => {
+            setLoading(true);
+            try {
+                const response = await axios.get('https://localhost:5001/tables', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                console.log(response.data);
+                setInitialData(response.data);
+            } catch (error) {
+                console.error('Failed to fetch initial data:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchInitialData();
+    }, [token]);
+
+    useEffect(() => {
+        console.log(initialData); // This will log the updated value when it changes
+    }, [initialData]);
+    
+
     const getData = useCallback(async (id) => {
         setLoading(true); // Start loading
         await new Promise(resolve => setTimeout(resolve, 1050));
         try {
-            const response = await axios.get(`https://tables-api-latest.onrender.com/my/${id}`, {
+            const response = await axios.get(`https://localhost:5001/tables/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -77,13 +103,13 @@ function MainApp({ token }) {
             <div>
                 <h1 className='mainh1'>Table Reservations - Intermezzo</h1>
             </div>
-            {loading && <div class="loading-bar-container">
-    <div class="loading-bar"></div>
+            {loading && <div className="loading-bar-container">
+    <div className="loading-bar"></div>
 </div>} {/* Loading indicator */}
             <div className="seat-block">
                 <div>
                     <Divider color={"black"} />
-                    <RedZone changeData={changeData} getData={getData} />
+                    <RedZone changeData={changeData} getData={getData} initialData={initialData}/>
                     <Divider color={"black"} />
                 </div>
                 <div>

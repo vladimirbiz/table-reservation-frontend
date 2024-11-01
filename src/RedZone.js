@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./Zone.css";
 
-function RedZone({ changeData, getData }) {
+function RedZone({ changeData, getData, initialData }) {
   const [seatStates, setSeatStates] = useState(Array(87).fill(null)); // Array to hold seat data
 
   useEffect(() => {
