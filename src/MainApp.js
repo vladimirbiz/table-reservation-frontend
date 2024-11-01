@@ -32,7 +32,7 @@ function MainApp({ token }) {
             });
             return response; 
         } catch (error) {
-            console.error('There was an error fetching the data!', error);
+            console.error('Error fetching data!', error);
         } finally {
             setLoading(false); // End loading
         }
@@ -80,9 +80,9 @@ function MainApp({ token }) {
                     Authorization: `Bearer ${token}`
                 }
             });
-            return response.data.value; // Set the response data
+            return response.data.value;
         } catch (error) {
-            console.error('There was an error fetching the data!', error);
+            console.error('Error fetching data!', error);
         } finally {
             setLoading(false); // End loading
             setLoading2(false); // End loading
@@ -91,9 +91,9 @@ function MainApp({ token }) {
     }, [token]);
 
     const handleReset = async () => {
-        setLoading(true); // Start loading
+        setLoading(true);
         try {
-            const response = await fetch('https://localhost:5001/my/reset', {
+            const response = await fetch('https://localhost:5001/tables/reset', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -108,14 +108,30 @@ function MainApp({ token }) {
             }
 
             const data = await response.json();
-            alert(data.Message); // Display success message
+            alert(data.Message);
         } catch (error) {
             console.error('Error resetting tables:', error);
             alert('Error resetting tables. Please try again.');
         } finally {
-            setLoading(false); // End loading
+            setLoading(false);
         }
     };
+
+    useEffect(() => {
+        const fetchInitialData = async () => {
+            setInitialLoading(true); // Start loading for initial fetch
+            try {
+                // Call getData for the initial load
+                await getData('*'); // Replace 'initialId' with the actual ID you want to fetch
+            } catch (error) {
+                console.error('Error fetching initial data!', error);
+            } finally {
+                setInitialLoading(false); // End initial loading
+        }
+    };
+
+        fetchInitialData();
+    }, [getData]);
 
     return (
         <div>
