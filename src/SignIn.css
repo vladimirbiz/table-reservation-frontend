@@ -65,7 +65,7 @@ input, textarea {
 .loading-bar {
     height: 8px;
     background-color: #000000;
-    animation: loading 2.2s linear infinite;
+    animation: loading 2.5s linear infinite;
 }
 
 @keyframes loading {
