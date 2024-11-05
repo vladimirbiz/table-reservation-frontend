@@ -41,6 +41,7 @@ function MainApp({ token, date }) {
                     Authorization: `Bearer ${token}`,
                 },
             });
+            console.log(response.data);
             setInitialData(response.data);
         } catch (error) {
             console.error('Failed to fetch initial data:', error);
@@ -115,7 +116,8 @@ function MainApp({ token, date }) {
 
                         <Zone
                             getData={initialData ? getData : null} // Only pass getData if initialData is loaded
-                            changeData={setNameSetter} // Trigger NameForm by passing setNameSetter
+                            changeData={changeData} // Trigger NameForm by passing setNameSetter
+                            changeData2={setNameSetter}
                             initialData={initialData}
                             handleReset={handleReset}
                         />
