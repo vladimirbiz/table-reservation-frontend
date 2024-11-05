@@ -7,12 +7,12 @@ import NameForm from './NameForm'; // Import NameForm
 function MainApp({ token, date }) {
     const [loading, setLoading] = useState(true);
     const [initialData, setInitialData] = useState(null);
-    const [nameSetter, setNameSetter] = useState(null); // To hold the id, value, and name for reservation
+    const [nameSetter, setNameSetter] = useState(null); // Holds id, value, and name for reservation
 
     const changeData = async (id, value, name) => {
         setLoading(true);
         console.log(id + "-id,  value-"+value+" , name-"+name);
-        await new Promise(resolve => setTimeout(resolve, 1050)); // Add some delay for loading
+        await new Promise(resolve => setTimeout(resolve, 1050)); // Simulate loading delay
         try {
             const response = await axios.put(
                 `https://tables-api-latest.onrender.com/tables/${date}/${id}/${value}/${name}`,
@@ -28,7 +28,7 @@ function MainApp({ token, date }) {
         } catch (error) {
             console.error('Error fetching data!', error);
         } finally {
-            setLoading(false); // End loading
+            setLoading(false);
             fetchInitialData();
         }
     };
@@ -54,23 +54,25 @@ function MainApp({ token, date }) {
     }, [fetchInitialData]);
 
     const getData = useCallback(async (id) => {
-        setLoading(true);
-        try {
-            const response = await axios.get(
-                `https://tables-api-latest.onrender.com/tables/${date}/${id}`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
-            return response.data.value; // Return the value of the seat
-        } catch (error) {
-            console.error('Error fetching data!', error);
-        } finally {
-            setLoading(false); // End loading
+        if (!initialData) {
+            return null; // Return null if initialData isn't loaded yet
         }
-    }, [date, token]);
+
+        setLoading(true);
+        let objvalue = "";
+        let objid = null;
+        let objname = undefined;
+        for (let i in initialData) {
+            if (initialData[i].id === id) {
+                objvalue = initialData[i].value;
+                objid = initialData[i].id;
+                objname = initialData[i].name;
+                break;
+            }
+        }
+        setLoading(false); // End loading
+        return { id: objid, value: objvalue, name: objname };
+    }, [initialData]);
 
     const handleReset = async () => {
         setLoading(true);
@@ -115,10 +117,9 @@ function MainApp({ token, date }) {
                             </div>
                         )}
 
-                        {/* Show Zone when nameSetter is not set */}
                         <Zone
-                            getData={getData}
-                            changeData={setNameSetter} // Set nameSetter here when a seat is selected
+                            getData={initialData ? getData : null} // Only pass getData if initialData is loaded
+                            changeData={setNameSetter} // Trigger NameForm by passing setNameSetter
                             initialData={initialData}
                             handleReset={handleReset}
                         />

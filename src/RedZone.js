@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import "./Zone.css";
 
-function RedZone({ changeData, getData, initialData }) {
+function RedZone({ changeData, getData, initialData, setSeeReservation, setSeatId, setSeatIdData }) {
   const [seatStates, setSeatStates] = useState(Array(147).fill(null)); // Initialize for 147 seats
 
   useEffect(() => {
-    console.log('Red Zone Initial Data:', initialData);
     if (initialData && Array.isArray(initialData)) {
       const states = Array(147).fill(null);
       initialData.forEach(item => {
@@ -18,22 +17,37 @@ function RedZone({ changeData, getData, initialData }) {
     }
   }, [initialData]);
 
+  const handleReservation = async (seatId) => {
+    if (!initialData) {
+      console.log("Initial data is not loaded yet.");
+      return; // Prevent calling getData if initialData isn't available
+    }
+
+    const data = await getData(seatId); // Wait for data to be fetched
+    if (!data) {
+      console.log("No data available for this seat.");
+      return;
+    }
+
+    console.log("DATA", data);
+    setSeeReservation(true);
+    setSeatId(seatId);
+    await setSeatIdData(data); // Set data for the seat
+  };
+
   const handleButtonClick = async (seatId) => {
     let value_for_seat = seatStates[seatId];
     if (typeof value_for_seat !== 'number') {
       value_for_seat = 0; // Default to 0 if not a number
     }
 
-    // Increment or reset the value for the seat
-    value_for_seat = (value_for_seat == 2) ? 0 : value_for_seat + 1;
+    value_for_seat = (value_for_seat === 2) ? 0 : value_for_seat + 1;
 
-    // Call changeData with seatId and value_for_seat
     await changeData(seatId, value_for_seat);
 
-    // Fetch the updated data for the clicked seat
     const data = await getData(seatId);
-    
-    // Update the seatStates with the fetched data
+    setSeatIdData(data);
+
     setSeatStates((prev) => {
       const newStates = [...prev];
       newStates[seatId] = data; // Store the data for the specific seat
@@ -41,7 +55,6 @@ function RedZone({ changeData, getData, initialData }) {
     });
   };
 
-  // Create an array for buttons ordered by seat IDs 1 through 87
   const seats = seatStates.slice(0, 87).map((state, index) => {
     const seatId = index + 1; // Seat IDs should be 1 through 87
     const isBlack = state === 2;
@@ -49,10 +62,16 @@ function RedZone({ changeData, getData, initialData }) {
     const isRed = state === 0;
 
     return (
-      <button 
-        key={seatId} 
-        className={`seat ${isBlack ? 'black' : isWhite ? "white" : isRed ? "white-red" : "blank"}`} 
-        onClick={() => handleButtonClick(seatId - 1)}
+      <button
+        key={seatId}
+        className={`seat ${isBlack ? 'black' : isWhite ? "white" : isRed ? "white-red" : "blank"}`}
+        onClick={() => {
+          if (isBlack || isWhite) {
+            handleReservation(seatId - 1); // Call handleReservation if the seat is black or white
+          } else {
+            handleButtonClick(seatId - 1); // Otherwise, call handleButtonClick
+          }
+        }}
       >
         {seatId}
       </button>

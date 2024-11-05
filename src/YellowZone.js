@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import "./Zone.css";
 
-function YellowZone({ changeData, getData, initialData }) {
+function YellowZone({ changeData, getData, initialData, setSeeReservation, setSeatId }) {
     const [seatStates, setSeatStates] = useState(Array(147).fill(null)); // Initialize for 147 seats
 
     useEffect(() => {
-      console.log('Yellow Zone Initial Data:', initialData);
       if (initialData && Array.isArray(initialData)) {
         const states = Array(147).fill(null);
         initialData.forEach(item => {
@@ -17,6 +16,11 @@ function YellowZone({ changeData, getData, initialData }) {
         setSeatStates(states); // Update the seat states
       }
     }, [initialData]);
+
+    const handleReservation = (seatId) => {
+      setSeeReservation(true);
+      setSeatId(seatId);
+    }
   
     const handleButtonClick = async (seatId) => {
       let value_for_seat = seatStates[(seatId + 87)];
@@ -50,12 +54,19 @@ function YellowZone({ changeData, getData, initialData }) {
   
       return (
         <button 
-          key={seatId} 
-          className={`seat ${isBlack ? 'black' : isWhite ? "white" : isYellow ? "white-yellow" : "blank"}`} 
-          onClick={() => handleButtonClick(seatId - 1)}
-        >
-          {seatId}
-        </button>
+  key={seatId} 
+  className={`seat ${isBlack ? 'black' : isWhite ? "white" : isYellow ? "white-yellow" : "blank"}`} 
+  onClick={() => {
+    // Conditionally call the appropriate function based on the seat's color
+    if (isBlack || isWhite) {
+      handleReservation(seatId - 1); // Call handleReservation if the seat is black or red
+    } else {
+      handleButtonClick(seatId - 1); // Otherwise, call handleButtonClick
+    }
+  }}
+>
+  {seatId}
+</button>
       );
     });
   
