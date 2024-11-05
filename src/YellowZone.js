@@ -5,7 +5,7 @@ function YellowZone({ changeData, getData, initialData }) {
     const [seatStates, setSeatStates] = useState(Array(147).fill(null)); // Initialize for 147 seats
 
     useEffect(() => {
-      console.log('Initial Data:', initialData);
+      console.log('Yellow Zone Initial Data:', initialData);
       if (initialData && Array.isArray(initialData)) {
         const states = Array(147).fill(null);
         initialData.forEach(item => {

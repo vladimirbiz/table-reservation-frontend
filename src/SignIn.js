@@ -9,7 +9,7 @@ const SignIn = ({ onSignIn }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://localhost:5001/api/login', {
+            const response = await fetch('https://tables-api-latest.onrender.com/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
