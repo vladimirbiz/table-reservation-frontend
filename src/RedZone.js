@@ -22,17 +22,22 @@ function RedZone({ changeData, getData, initialData, setSeeReservation, setSeatI
       console.log("Initial data is not loaded yet.");
       return; // Prevent calling getData if initialData isn't available
     }
-
-    const data = await getData(seatId); // Wait for data to be fetched
-    if (!data) {
-      console.log("No data available for this seat.");
-      return;
-    }
-
-    console.log("DATA", data);
-    setSeeReservation(true);
-    setSeatId(seatId);
-    await setSeatIdData(data); // Set data for the seat
+    console.log( "seatID: "+ seatId )
+    let objvalue = "";
+    let objid = null;
+    let objname = undefined;
+    console.log({initialData})
+      for (let i in initialData) {
+          if (initialData[i].id == seatId) {
+              objvalue = initialData[i].value;
+              objid = initialData[i].id;
+              objname = initialData[i].name;
+              console.log({id: objid, value:objvalue, name: objname})
+              await setSeatIdData({id: objid, value:objvalue, name: objname})
+              await setSeatId(seatId);
+              break;
+          }
+         } // Wait for data to be fetched
   };
 
   const handleButtonClick = async (seatId) => {
@@ -45,7 +50,7 @@ function RedZone({ changeData, getData, initialData, setSeeReservation, setSeatI
 
     await changeData(seatId, value_for_seat);
 
-    const data = await getData(seatId);
+    const data = await getData(seatId, initialData);
     setSeatIdData(data);
 
     setSeatStates((prev) => {

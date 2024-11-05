@@ -53,20 +53,16 @@ function MainApp({ token, date }) {
         fetchInitialData();
     }, [fetchInitialData]);
 
-    const getData = useCallback(async (id) => {
-        if (!initialData) {
-            return null; // Return null if initialData isn't loaded yet
-        }
-
+    const getData = useCallback(async (id, data) => {
         setLoading(true);
         let objvalue = "";
         let objid = null;
         let objname = undefined;
-        for (let i in initialData) {
-            if (initialData[i].id === id) {
-                objvalue = initialData[i].value;
-                objid = initialData[i].id;
-                objname = initialData[i].name;
+        for (let i in data) {
+            if (data[i].id === id) {
+                objvalue = data[i].value;
+                objid = data[i].id;
+                objname = data[i].name;
                 break;
             }
         }
