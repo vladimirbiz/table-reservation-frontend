@@ -17,6 +17,10 @@ function NameForm({ changeData, setNameSetter, nameSetter }) {
         // In this case, you can reset nameSetter to null or update it as needed
     };
 
+    const handleCancel = async () =>{
+        setNameSetter(undefined);
+    }
+
     return (
         <div className="div-center">
             <div className='name-div'>
@@ -27,10 +31,12 @@ function NameForm({ changeData, setNameSetter, nameSetter }) {
                     className="name-input" 
                     value={name}  // Controlled input
                     onChange={(e) => setName(e.target.value)}  // Update name on change
-                    placeholder="Enter Name" 
+                    placeholder="" 
                 />
                 <button className="name-button" type="submit">Submit</button>
+                
             </form>
+            <button className='cancel-button' onClick={()=>handleCancel()}>Cancel</button>
             </div>
         </div>
     );
