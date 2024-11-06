@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
-import "./SignIn.css";
+import "./css/SignIn.css";
 import Zone from './Zone';
 import NameForm from './NameForm'; // Import NameForm
 
@@ -106,11 +106,14 @@ function MainApp({ token, date }) {
                 />
             ) : (
                 <div>
-                    <h1 className='mainh1'>Table Reservations - Intermezzo</h1>
+                    
                     <div className="seat-block">
                         {loading && (
+                            <div>
+                                <h1 className='mainh1'>Table Reservations - Intermezzo</h1>
                             <div className="loading-bar-container">
                                 <div className="loading-bar"></div>
+                            </div>
                             </div>
                         )}
 

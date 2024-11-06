@@ -37,3 +37,22 @@ button:hover{
 .App-link {
   color: #61dafb;
 }
+
+body, html {
+  height: 100%;
+  margin: 0;
+  position: relative;
+}
+.div-center {
+  width: 30%;
+  height: 60%;
+  min-width: 400px;
+  min-height: 420px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Adjust position back */
+}

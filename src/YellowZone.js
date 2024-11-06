@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import "./Zone.css";
+import "./css/Zone.css";
 
-function YellowZone({ changeData, getData, initialData, setSeeReservation, setSeatId }) {
+function YellowZone({ changeData, getData, initialData, setSeatId, setSeatIdData}) {
     const [seatStates, setSeatStates] = useState(Array(147).fill(null)); // Initialize for 147 seats
 
     useEffect(() => {
@@ -17,10 +17,28 @@ function YellowZone({ changeData, getData, initialData, setSeeReservation, setSe
       }
     }, [initialData]);
 
-    const handleReservation = (seatId) => {
-      setSeeReservation(true);
-      setSeatId(seatId);
-    }
+    const handleReservation = async (seatId) => {
+      if (!initialData) {
+        console.log("Initial data is not loaded yet.");
+        return; // Prevent calling getData if initialData isn't available
+      }
+      console.log( "seatID: "+ seatId )
+      let objvalue = "";
+      let objid = null;
+      let objname = undefined;
+      console.log({initialData})
+        for (let i in initialData) {
+            if (initialData[i].id == (seatId+87)) {
+                objvalue = initialData[i].value;
+                objid = initialData[i].id;
+                objname = initialData[i].name;
+                console.log({id: objid, value:objvalue, name: objname})
+                await setSeatIdData({id: objid, value:objvalue, name: objname})
+                await setSeatId(objid);
+                break;
+            }
+           } // Wait for data to be fetched
+    };
   
     const handleButtonClick = async (seatId) => {
       let value_for_seat = seatStates[(seatId + 87)];
@@ -35,7 +53,10 @@ function YellowZone({ changeData, getData, initialData, setSeeReservation, setSe
       await changeData((seatId + 87), value_for_seat);
   
       // Fetch the updated data for the clicked seat
-      const data = await getData(seatId + 87);
+      const data = await getData((seatId + 87), initialData);
+      console.log("getdata - ");
+      console.log({data});
+      setSeatIdData(data);
       
       // Update the seatStates with the fetched data
       setSeatStates((prev) => {

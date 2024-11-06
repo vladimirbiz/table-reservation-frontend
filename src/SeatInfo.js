@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/DatePicker.css';
 
 function SeatInfo({ id, name, setSeatId, changeData }) {
     if (!id || !name) {
@@ -6,13 +7,13 @@ function SeatInfo({ id, name, setSeatId, changeData }) {
     }
 
     return (
-        <div>
-            <h2 className='date-h2'>Seat Information</h2>
+        <div className='div-center'>
             {/* <h3 className='date-h2'>ID: {id}</h3> */}
-            <h3 className='date-h2'>Name: {name}</h3>
-            <button className="seat-button" onClick={() => {changeData(id, 2, name); setSeatId(null)}} >isSeated</button>
-            <button className="seat-button" onClick={()=>setSeatId(null)}>Back to table view</button>
+            <h2 className='name-h2'>Table: {id}</h2>
+            <h2 className='name-h2-2'>Name: {name}</h2>
+            <button className="seat-button" onClick={() => {changeData(id, 2, name); setSeatId(null)}} >Guest is seated</button>
             <button className="seat-button" onClick={() => {changeData(id, 0, 'no-name'); setSeatId(null)}} >Cancel Reservation</button>
+            <button className="seat-button" onClick={()=>setSeatId(null)}>Done</button>
         </div>
     );
 }

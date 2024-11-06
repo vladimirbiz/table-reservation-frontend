@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./DatePicker.css";
+import "./css/DatePicker.css";
 
 function NameForm({ changeData, setNameSetter, nameSetter }) {
     const [name, setName] = useState(nameSetter.name || ''); // Initialize name from nameSetter if available
@@ -18,8 +18,9 @@ function NameForm({ changeData, setNameSetter, nameSetter }) {
     };
 
     return (
-        <div className="date-picker">
-            <h1 className='date-h2'>Insert a name for the reservation</h1>
+        <div className="div-center">
+            <div className='name-div'>
+            <h1 className='name-h1'>Table reserved for:</h1>
             <form onSubmit={handleDateChange}>
                 <input 
                     type="text" 
@@ -28,8 +29,9 @@ function NameForm({ changeData, setNameSetter, nameSetter }) {
                     onChange={(e) => setName(e.target.value)}  // Update name on change
                     placeholder="Enter Name" 
                 />
-                <button className="date-button" type="submit">Submit</button>
+                <button className="name-button" type="submit">Submit</button>
             </form>
+            </div>
         </div>
     );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./Zone.css";
+import "./css/Zone.css";
 
 function RedZone({ changeData, getData, initialData, setSeeReservation, setSeatId, setSeatIdData, seatIdData }) {
   const [seatStates, setSeatStates] = useState(Array(147).fill(null)); // Initialize for 147 seats

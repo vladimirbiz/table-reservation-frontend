@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./DatePicker.css";
+import "./css/DatePicker.css";
 
 function DatePicker({ setDate }) {
     const today = new Date();
@@ -27,8 +27,8 @@ function DatePicker({ setDate }) {
     };
 
     return (
-        <div className="date-picker">
-            <h1 className='date-h2'>Select a Date</h1>
+        <div className="div-center">
+            <h1>Select a Date</h1>
             <form onSubmit={handleDateChange}>
                 <select
                     value={day}

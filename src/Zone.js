@@ -19,14 +19,15 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset }) {
     return (
         <div>{!seatId ? (
             <div>
+                <h1 className='mainh1'>Table Reservations - Intermezzo</h1>
                 <Divider color={"black"} />
                 <RedZone changeData={addData} getData={getData} initialData={initialData} setSeeReservation={setSeeReservation} setSeatId={setSeatId} setSeatIdData={setSeatIdData}/>
                 <Divider color={"black"} />
 
-                <YellowZone changeData={addData} getData={getData} initialData={initialData} setSeeReservation={setSeeReservation} setSeatId={setSeatId}  />
+                <YellowZone changeData={addData} getData={getData} initialData={initialData} setSeeReservation={setSeeReservation} setSeatId={setSeatId} setSeatIdData={setSeatIdData}/>
 
                 <Divider color={"black"} />
-                <GreenZone changeData={addData} getData={getData} initialData={initialData} setSeeReservation={setSeeReservation} setSeatId={setSeatId}  />
+                <GreenZone changeData={addData} getData={getData} initialData={initialData} setSeeReservation={setSeeReservation} setSeatId={setSeatId} setSeatIdData={setSeatIdData}/>
                 <Divider color={"black"} />
                 <button onClick={handleReset}>reset</button>
             </div>) :

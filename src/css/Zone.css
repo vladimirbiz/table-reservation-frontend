@@ -80,7 +80,8 @@ h1{
 
 .mainh1{
     margin-top:10vh;
-    margin-bottom: 10vh;
+    margin-bottom: 3vh;
+    min-height: 100px;
 }
 
 .seat-block{
