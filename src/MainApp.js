@@ -121,34 +121,6 @@ function MainApp({ token, date }) {
                     nameSetter={nameSetter}
                 />
             ) : (
-                <div>
-                    {/* Add search input field here */}
-                    <div className="search-section">
-                        <input
-                            type="text"
-                            placeholder="Search for a guest by name or ID"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
-                        <button onClick={handleSearch}>Search</button>
-                    </div>
-
-                    {searchResults && (
-                        <div className="search-results">
-                            {Array.isArray(searchResults) ? (
-                                searchResults.map((guest) => (
-                                    <div key={guest.id}>
-                                        <p>Name: {guest.name}</p>
-                                        <p>Reservation Status: {guest.value ? "Reserved" : "Available"}</p>
-                                        <p>Table - {Number(guest.id) + 1}</p>
-                                    </div>
-                                ))
-                            ) : (
-                                <p>{searchResults}</p>
-                            )}
-                        </div>
-                    )}
-
                     <div className="seat-block">
                         {loading && (
                             <div>
@@ -165,9 +137,12 @@ function MainApp({ token, date }) {
                             changeData2={setNameSetter}
                             initialData={initialData}
                             handleReset={handleReset}
+                            searchQuery={searchQuery}
+                            setSearchQuery={setSearchQuery}
+                            handleSearch={handleSearch} 
+                            searchResults={searchResults}
                         />
                     </div>
-                </div>
             )}
         </div>
     );

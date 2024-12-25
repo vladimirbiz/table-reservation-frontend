@@ -105,15 +105,15 @@ input, textarea {
     padding: 10px 15px;
     font-size: 16px;
     width: 250px; /* Adjust width as needed */
-    border-radius: 25px;
-    border: 1px solid #ccc;
+    border-radius: 0px;
+    border: 2px solid #ccc;
     outline: none;
     transition: border-color 0.3s;
     height: 40px;
 }
 
 .search-section input:focus {
-    border-color: #000; /* Highlight border on focus */
+    border-color: #5e5e5e; /* Highlight border on focus */
 }
 
 .search-section button {
@@ -122,32 +122,33 @@ input, textarea {
     margin-top: 20px;
     padding: 10px 10px;
     font-size: 16px;
-    background-color: #000;
-    color: white;
-    border: 3px solid black;
-    border-radius: 20px;
+    background-color: #ffffff;
+    color: rgb(118, 118, 118);
+    border: 2px solid rgb(187, 187, 187);
+    border-radius: 0px;
     cursor: pointer;
     transition: background-color 0.3s;
     height:40px;
 }
 
 .search-section button:hover {
-    background-color: #000; /* Darker blue on hover */
-    color: #fff;
+    background-color: #fefefe; /* Darker blue on hover */
+    color: #717171;
+    border: 2px solid gray;
 }
 
 .search-section button:active {
-    background-color: #000; /* Even darker blue when clicked */
+    background-color: #fffefe; /* Even darker blue when clicked */
 }
 
 /* Styling for the search results section */
 .search-results {
-    margin-top: 20px;
+    margin-top: 5px;
     text-align: center;
     padding: 10px;
     border-radius: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
 }
 
 .search-results p {
@@ -157,8 +158,8 @@ input, textarea {
 
 /* Styling for individual result cards */
 .search-results div {
-    margin: 10px 0;
-    padding: 15px;
+    margin: 10px 10px;
+    padding: 25px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
