@@ -19,20 +19,19 @@ function RedZone({ changeData, getData, initialData, setSeeReservation, setSeatI
 
   const handleReservation = async (seatId) => {
     if (!initialData) {
-      console.log("Initial data is not loaded yet.");
       return; // Prevent calling getData if initialData isn't available
     }
     console.log( "seatID: "+ seatId )
     let objvalue = "";
     let objid = null;
     let objname = undefined;
-    console.log({initialData})
+    console.log("In handle reservation: ")
+    console.log({initialData});
       for (let i in initialData) {
           if (initialData[i].id == seatId) {
               objvalue = initialData[i].value;
               objid = initialData[i].id;
               objname = initialData[i].name;
-              console.log({id: objid, value:objvalue, name: objname})
               await setSeatIdData({id: objid, value:objvalue, name: objname})
               await setSeatId(seatId);
               break;

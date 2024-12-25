@@ -8,6 +8,8 @@ function MainApp({ token, date }) {
     const [loading, setLoading] = useState(true);
     const [initialData, setInitialData] = useState(null);
     const [nameSetter, setNameSetter] = useState(null); // Holds id, value, and name for reservation
+    const [searchQuery, setSearchQuery] = useState(""); // State to hold search query
+    const [searchResults, setSearchResults] = useState(null); // State to hold search results
 
     const changeData = async (id, value, name) => {
         setLoading(true);
@@ -41,6 +43,7 @@ function MainApp({ token, date }) {
                     Authorization: `Bearer ${token}`,
                 },
             });
+            console.log("INITIAL DATA");
             console.log(response.data);
             setInitialData(response.data);
         } catch (error) {
@@ -70,6 +73,19 @@ function MainApp({ token, date }) {
         setLoading(false); // End loading
         return { id: objid, value: objvalue, name: objname };
     }, [initialData]);
+
+    const handleSearch = () => {
+        if (!searchQuery) {
+            setSearchResults(null);
+            return;
+        }
+        
+        const lowerSearchQuery = searchQuery.toLowerCase();
+        const results = initialData.filter(guest => 
+            guest.name.toLowerCase().includes(lowerSearchQuery) || guest.id.toString().includes(searchQuery)
+        );
+        setSearchResults(results.length > 0 ? results : "No matching reservations found.");
+    };
 
     const handleReset = async () => {
         setLoading(true);
@@ -106,14 +122,40 @@ function MainApp({ token, date }) {
                 />
             ) : (
                 <div>
-                    
+                    {/* Add search input field here */}
+                    <div className="search-section">
+                        <input
+                            type="text"
+                            placeholder="Search for a guest by name or ID"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                        <button onClick={handleSearch}>Search</button>
+                    </div>
+
+                    {searchResults && (
+                        <div className="search-results">
+                            {Array.isArray(searchResults) ? (
+                                searchResults.map((guest) => (
+                                    <div key={guest.id}>
+                                        <p>Name: {guest.name}</p>
+                                        <p>Reservation Status: {guest.value ? "Reserved" : "Available"}</p>
+                                        <p>Table - {Number(guest.id) + 1}</p>
+                                    </div>
+                                ))
+                            ) : (
+                                <p>{searchResults}</p>
+                            )}
+                        </div>
+                    )}
+
                     <div className="seat-block">
                         {loading && (
                             <div>
                                 <h1 className='mainh1'>Table Reservations - Intermezzo</h1>
-                            <div className="loading-bar-container">
-                                <div className="loading-bar"></div>
-                            </div>
+                                <div className="loading-bar-container">
+                                    <div className="loading-bar"></div>
+                                </div>
                             </div>
                         )}
 

@@ -19,20 +19,16 @@ function YellowZone({ changeData, getData, initialData, setSeatId, setSeatIdData
 
     const handleReservation = async (seatId) => {
       if (!initialData) {
-        console.log("Initial data is not loaded yet.");
         return; // Prevent calling getData if initialData isn't available
       }
-      console.log( "seatID: "+ seatId )
       let objvalue = "";
       let objid = null;
       let objname = undefined;
-      console.log({initialData})
         for (let i in initialData) {
             if (initialData[i].id == (seatId+87)) {
                 objvalue = initialData[i].value;
                 objid = initialData[i].id;
                 objname = initialData[i].name;
-                console.log({id: objid, value:objvalue, name: objname})
                 await setSeatIdData({id: objid, value:objvalue, name: objname})
                 await setSeatId(objid);
                 break;
@@ -54,8 +50,6 @@ function YellowZone({ changeData, getData, initialData, setSeatId, setSeatIdData
   
       // Fetch the updated data for the clicked seat
       const data = await getData((seatId + 87), initialData);
-      console.log("getdata - ");
-      console.log({data});
       setSeatIdData(data);
       
       // Update the seatStates with the fetched data

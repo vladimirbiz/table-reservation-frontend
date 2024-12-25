@@ -26,13 +26,11 @@ function YellowZone({ changeData, getData, initialData, setSeatId, setSeatIdData
       let objvalue = "";
       let objid = null;
       let objname = undefined;
-      console.log({initialData})
         for (let i in initialData) {
             if (initialData[i].id == (seatId + 138)) {
                 objvalue = initialData[i].value;
                 objid = initialData[i].id;
                 objname = initialData[i].name;
-                console.log({id: objid, value:objvalue, name: objname})
                 await setSeatIdData({id: objid, value:objvalue, name: objname})
                 await setSeatId(objid);
                 break;
