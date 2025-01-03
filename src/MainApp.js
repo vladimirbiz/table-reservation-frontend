@@ -53,9 +53,30 @@ function MainApp({ token, date }) {
         }
     }, [date, token]);
 
+    const fetchInitialData2 = useCallback(async () => {
+        try {
+            const response = await axios.get(`https://tables-api-latest.onrender.com/tables/${date}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            setInitialData(response.data);
+        } catch (error) {
+            console.error('Failed to fetch initial data:', error);
+        } finally {
+        }
+    }, [date, token]);
+
     useEffect(() => {
-        fetchInitialData();
-    }, [fetchInitialData]);
+        fetchInitialData(); // Fetch once when the component mounts
+
+        const intervalId = setInterval(() => {
+            fetchInitialData2(); // Fetch every 5 seconds
+        }, 5000);
+
+        // Cleanup interval on component unmount or re-render
+        return () => clearInterval(intervalId);
+    }, [fetchInitialData]); // Re-run if fetchInitialData function changes
 
     const getData = useCallback(async (id, data) => {
         setLoading(true);
@@ -82,7 +103,7 @@ function MainApp({ token, date }) {
         
         const lowerSearchQuery = searchQuery.toLowerCase();
         const results = initialData.filter(guest => 
-            guest.name.toLowerCase().includes(lowerSearchQuery) || guest.id.toString().includes(searchQuery)
+            (guest.name.toLowerCase().includes(lowerSearchQuery) || guest.id.toString().includes(searchQuery)) && !guest.name.toLowerCase().includes("no-name")
         );
         setSearchResults(results.length > 0 ? results : "No matching reservations found.");
     };
