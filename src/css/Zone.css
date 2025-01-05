@@ -56,6 +56,8 @@
     color: white;
 }
 
+/* ???????????????????????????????????????? */
+
 button {
     outline: none; /* Removes the outline */
     border: none; /* Optional: Removes the border */
@@ -63,6 +65,7 @@ button {
     cursor: pointer; /* Changes the cursor to pointer on hover */
 }
 
+/* ???????????????????????????????????????? */
 
 .black, .black * {
     color: white;
@@ -98,3 +101,88 @@ h1{
     padding: 0; /* Remove padding */
     margin: 10vh; /* Remove margin */
 }
+
+/* Styling for the search results section */
+.search-results {
+    margin-top: 5px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.search-results p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+/* Styling for individual result cards */
+.search-results div {
+    margin: 10px 10px;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.search-results div:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.search-results div p {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.search-section {
+    margin: 40px 0;
+    gap: 20px;
+}
+
+.search-section input {
+    display: block;
+    margin: auto;
+    padding: 10px 15px;
+    font-size: 16px;
+    width: 250px; /* Adjust width as needed */
+    border-radius: 0px;
+    border: 2px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s;
+    height: 40px;
+}
+
+.search-section input:focus {
+    border-color: #5e5e5e; /* Highlight border on focus */
+}
+
+.search-section button {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px 10px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: rgb(118, 118, 118);
+    border: 2px solid rgb(187, 187, 187);
+    border-radius: 0px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height:40px;
+}
+
+.search-section button:hover {
+    background-color: #fefefe; /* Darker blue on hover */
+    color: #717171;
+    border: 2px solid gray;
+}
+
+.search-section button:active {
+    background-color: #fffefe; /* Even darker blue when clicked */
+}
+
+/* Optional - to center the content */

@@ -13,17 +13,6 @@ button:hover{
   font-style: italic;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,16 +24,16 @@ button:hover{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 body, html {
   height: 100%;
   margin: 0;
   position: relative;
 }
-.div-center {
+
+
+/* DatePicker NameForm SeatInfo*/
+
+.div-center { 
   width: 30%;
   height: 60%;
   min-width: 400px;
@@ -56,4 +45,14 @@ body, html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /* Adjust position back */
+}
+
+input, textarea {
+  width: 100%;             /* Full width of the form */
+  padding: 10px;           /* Padding inside inputs */
+  margin-bottom: 15px;     /* Space below inputs */
+  border: 1px solid black;  /* Black border for inputs */
+  border-radius: 3px;      /* Rounded corners */
+  font-size: 16px;   
+  text-align: center;      /* Font size */
 }

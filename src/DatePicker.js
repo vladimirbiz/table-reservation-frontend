@@ -31,6 +31,7 @@ function DatePicker({ setDate }) {
             <h1>Select a Date</h1>
             <form onSubmit={handleDateChange}>
                 <select
+                    className='date-select'
                     value={day}
                     onChange={(e) => setDay(e.target.value)}
                     required
@@ -43,6 +44,7 @@ function DatePicker({ setDate }) {
                     ))}
                 </select>
                 <select
+                className='date-select'
                     value={month}
                     onChange={(e) => {
                         const newMonth = parseInt(e.target.value);

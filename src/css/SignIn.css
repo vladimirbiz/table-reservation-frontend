@@ -33,19 +33,9 @@
     padding-bottom: 5vw;
 }
 
-label {
+.label-signIn {
     display: block;          /* Make labels block elements */
     margin: 10px 0 7px;     /* Space above and below labels */
-}
-
-input, textarea {
-    width: 100%;             /* Full width of the form */
-    padding: 10px;           /* Padding inside inputs */
-    margin-bottom: 15px;     /* Space below inputs */
-    border: 1px solid black;  /* Black border for inputs */
-    border-radius: 3px;      /* Rounded corners */
-    font-size: 16px;   
-    text-align: center;      /* Font size */
 }
 
 .formButton {
@@ -63,121 +53,9 @@ input, textarea {
     padding: 8px;
 }
 
-.loading-bar-container {
-    width: 60vw;
-    height: 100vh;
-    background-color: #ffffff;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-left: 15vw;
-}
-
-.loading-bar {
-    height: 8px;
-    background-color: #000000;
-    animation: loading 3s linear infinite;
-}
-
 .errorP{
     padding: 0;
     margin: 0;
     text-align: center;
     color: #270909;
-}
-
-@keyframes loading {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 80%;
-    }
-}
-/* Styling for the search section */
-.search-section {
-    margin: 40px 0;
-    gap: 20px;
-}
-
-.search-section input {
-    display: block;
-    margin: auto;
-    padding: 10px 15px;
-    font-size: 16px;
-    width: 250px; /* Adjust width as needed */
-    border-radius: 0px;
-    border: 2px solid #ccc;
-    outline: none;
-    transition: border-color 0.3s;
-    height: 40px;
-}
-
-.search-section input:focus {
-    border-color: #5e5e5e; /* Highlight border on focus */
-}
-
-.search-section button {
-    display: block;
-    margin: auto;
-    margin-top: 20px;
-    padding: 10px 10px;
-    font-size: 16px;
-    background-color: #ffffff;
-    color: rgb(118, 118, 118);
-    border: 2px solid rgb(187, 187, 187);
-    border-radius: 0px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    height:40px;
-}
-
-.search-section button:hover {
-    background-color: #fefefe; /* Darker blue on hover */
-    color: #717171;
-    border: 2px solid gray;
-}
-
-.search-section button:active {
-    background-color: #fffefe; /* Even darker blue when clicked */
-}
-
-/* Styling for the search results section */
-.search-results {
-    margin-top: 5px;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    border: 1px solid #ffffff;
-}
-
-.search-results p {
-    font-size: 18px;
-    margin: 5px 0;
-}
-
-/* Styling for individual result cards */
-.search-results div {
-    margin: 10px 10px;
-    padding: 25px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.search-results div:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.search-results div p {
-    font-size: 16px;
-    color: #333;
-    margin: 5px 0;
-}
-
-/* Optional - to center the content */
-.mainh1 {
-    text-align: center;
 }

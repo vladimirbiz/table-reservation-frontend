@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./css/DatePicker.css";
+import "./css/NameForm.css";
 
 function NameForm({ changeData, setNameSetter, nameSetter }) {
     const [name, setName] = useState(nameSetter.name || ''); // Initialize name from nameSetter if available

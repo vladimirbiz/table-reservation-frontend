@@ -4,7 +4,7 @@ import YellowZone from './YellowZone';
 import GreenZone from './GreenZone';
 import Divider from './Divider';
 import SeatInfo from './SeatInfo';
-import "./css/SignIn.css";
+import "./css/Zone.css";
 
 function Zone({ getData, changeData,changeData2, initialData, handleReset, searchQuery, setSearchQuery, handleSearch, searchResults }) {
 

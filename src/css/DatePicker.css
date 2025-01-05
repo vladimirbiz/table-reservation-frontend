@@ -1,40 +1,4 @@
-.date-picker{
-    width: 430px;
-    height: 420px;
-    margin: auto;
-    margin-top: 13%;
-    padding-top:8%;
-    border : 2px solid black;
-}
-
-.name-input{
-    display: block;
-    margin:auto;
-    margin-bottom: 10%;
-    text-align: center;
-    width: 50%;        
-    padding: 10px;    
-    border: 2px solid black;        
-    background-color: white; 
-    color: black;            
-    font-size: 16px;        
-    cursor: pointer; 
-}
-.name-input:hover{
-    border: 3px solid rgb(0, 0, 0);
-    padding: 9px;
-}
-
-.date-h1{
-    text-align: center;
-    margin: auto;
-    margin-top: 12%;
-    margin-bottom: 50px;
-    font-weight: 700;
-}
-
-
-select{
+.date-select{
     display: block;
     margin: auto;
     margin-top: 20px;
@@ -48,7 +12,7 @@ select{
     cursor: pointer;        
 }
 
-select:hover{         
+.date-select:hover{         
     border-width: 3px;
     padding: 9px;           
 }
@@ -68,87 +32,4 @@ select:hover{
 
 .date-button:hover{
     padding: 8px;
-}
-
-.name-button{
-    display: block;
-    margin: auto;
-    margin-top: 20px;
-    width: 40%;             /* Full width of the button */
-    padding: 10px;           /* Padding inside the button */
-    border: none;            /* Remove default border */
-    background-color: black; /* Black background */
-    color: white;            /* White text */
-    font-size: 16px;         /* Font size */
-    cursor: pointer;         /* Change cursor to pointer */
-}
-.name-button:hover{
-    padding: 8px;
-    border:2px solid black;
-}
-
-.seat-button:hover{
-    background-color: black;
-    color: rgb(255, 254, 254);
-    border: 2px solid black;
-}
-
-.seat-button{
-    margin: auto;
-    margin-top: 20px;
-    display: block;
-    width: 15%;   
-    min-width: 140px;          /* Full width of the button */
-    padding: 10px;           /* Padding inside the button */
-    border: none;            /* Remove default border */
-    background-color: rgb(255, 254, 254); /* Black background */
-    border: 2px solid black;
-    color: rgb(0, 0, 0);            /* White text */
-    font-size: 16px;         /* Font size */
-    cursor: pointer;         /* Change cursor to pointer */ 
-}
-
-.name-h2{
-    text-align: center;
-    margin: auto;
-    margin-top: 50px;
-    font-weight: 700;
-}
-
-.name-h1{
-    margin-bottom: 14%;
-}
-
-.name-h2-2{
-    text-align: center;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 50px;
-    font-weight: 700;
-}
-
-.name-div{
-    min-width: 300px;
-    padding-top: 7%;
-    align-items: center;
-    justify-content: center;
-}
-
-.cancel-button{
-    display: block;
-    margin: auto;
-    margin-top: 15px;
-    width: 40%;             /* Full width of the button */
-    padding: 10px;           /* Padding inside the button */
-    border: none;            /* Remove default border */
-    background-color: rgb(255, 255, 255); /* Black background */
-    color: rgb(0, 0, 0);            /* White text */
-    font-size: 16px;         /* Font size */
-    cursor: pointer;         /* Change cursor to pointer */
-
-}
-
-.cancel-button:hover{
-    border: 2px solid black;
-    padding: 8px; 
 }

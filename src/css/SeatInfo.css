@@ -1,0 +1,34 @@
+.seat-button:hover{
+    background-color: black;
+    color: rgb(255, 254, 254);
+    border: 2px solid black;
+}
+
+.seat-button{
+    margin: auto;
+    margin-top: 20px;
+    display: block;
+    width: 15%;   
+    min-width: 140px;          /* Full width of the button */
+    padding: 10px;           /* Padding inside the button */
+    border: none;            /* Remove default border */
+    background-color: rgb(255, 254, 254); /* Black background */
+    border: 2px solid black;
+    color: rgb(0, 0, 0);            /* White text */
+    font-size: 16px;         /* Font size */
+    cursor: pointer;         /* Change cursor to pointer */ 
+}
+
+.name-h2{
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    font-weight: 700;
+}
+.name-h2-2{
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
