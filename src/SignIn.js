@@ -31,11 +31,11 @@ const SignIn = ({ onSignIn }) => {
     
 
     return (
-        <div className='form-container'>
+        <div >
+        <form className="div-center styledForm" onSubmit={handleSubmit}>
         <h1 className='signInh1'>Sign In</h1>
-        <form className="styledForm" onSubmit={handleSubmit}>
             <div>
-                <label>Email</label>
+                <label className='label-signIn'>Email</label>
                 <input
                     type="email"
                     value={email}
@@ -44,7 +44,7 @@ const SignIn = ({ onSignIn }) => {
                 />
             </div>
             <div>
-                <label>Password</label>
+                <label className='label-signIn'>Password</label>
                 <input
                     type="password"
                     value={password}

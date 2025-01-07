@@ -30,7 +30,7 @@ function SeatInfo({ id, name, setSeatId, changeData }) {
             <h2 className='name-h2-2'>Name - {name}</h2>
             <button className="seat-button" onClick={() => {changeData(id, 2, name); setSeatId(null)}} >Guest is seated</button>
             <button className="seat-button" onClick={() => {changeData(id, 0, 'no-name'); setSeatId(null)}} >Cancel Reservation</button>
-            <button className="seat-button" onClick={()=>setSeatId(null)}>Done</button>
+            <button className="seat-button seat-button-done" onClick={()=>setSeatId(null)}>Done</button>
         </div>
     );
 }

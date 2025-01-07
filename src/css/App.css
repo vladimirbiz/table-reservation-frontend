@@ -34,21 +34,25 @@ body, html {
 /* DatePicker NameForm SeatInfo*/
 
 .div-center { 
-  width: 30%;
-  height: 60%;
-  min-width: 400px;
-  min-height: 420px;
+  width: 40%;
+  height: 80%;
+  min-width: 250px;
+  min-height: 380px;
+  max-height: 400px;
+  max-width: 350px;
   border: 3px solid black;
   border-radius: 15px;
   background-color: rgb(255, 255, 255);
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%); /* Adjust position back */
 }
 
 input, textarea {
-  width: 100%;             /* Full width of the form */
+  display: block;
+  margin: auto;
+  width: 85%;             /* Full width of the form */
   padding: 10px;           /* Padding inside inputs */
   margin-bottom: 15px;     /* Space below inputs */
   border: 1px solid black;  /* Black border for inputs */

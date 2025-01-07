@@ -3,39 +3,17 @@
 }
 
 .signInh1{
-    margin:auto;
-    margin: 10vh;
-    margin-top: 8vh;
-    font-weight: 700;
-    min-width: 150px;
     text-align: center;
-    width: 100%;
-    text-align: center;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: column; /* Stacks children vertically */
-    align-items: center; /* Centers children horizontally */
-    justify-content: center; /* Centers children vertically */
-    height: 100vh; /* Adjust height as needed */
-    width: 30vw;
-    min-width: 250px;
-    height:60vh; 
-    min-height: 400px;          /* Set a fixed width for the form */         /* Add padding around the form */
-    border: 2px solid rgb(88, 10, 10); /* Black border around the form */
-    border-radius: 25px;     /* Rounded corners */
-    background-color: white; /* White background for the form */
     margin: auto;
-    margin-top: 15vh;
-    padding-left: 5vw;
-    padding-right: 5vw;
-    padding-bottom: 5vw;
+    margin-top: 50px;
+    font-weight: 700;
 }
 
 .label-signIn {
-    display: block;          /* Make labels block elements */
-    margin: 10px 0 7px;     /* Space above and below labels */
+    display: block;
+    width: 85%; 
+    margin:auto;
+    margin-bottom: 10px;         /* Make labels block elements */
 }
 
 .formButton {
@@ -47,6 +25,13 @@
     color: white;            /* White text */
     font-size: 16px;         /* Font size */
     cursor: pointer;         /* Change cursor to pointer */     /* Rounded corners */
+    /**/
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: block;
+    width: 15%;   
+    min-width: 140px;   
 }
 
 .formButton:hover{
@@ -58,4 +43,10 @@
     margin: 0;
     text-align: center;
     color: #270909;
+}
+.styledForm{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
 }
