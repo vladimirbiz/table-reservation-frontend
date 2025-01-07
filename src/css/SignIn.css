@@ -28,10 +28,9 @@
     /**/
     margin: auto;
     margin-top: 20px;
-    margin-bottom: 40px;
-    display: block;
-    width: 15%;   
-    min-width: 140px;   
+    margin-bottom: 20px;
+    display: block; 
+    min-width: 180px;   
 }
 
 .formButton:hover{
