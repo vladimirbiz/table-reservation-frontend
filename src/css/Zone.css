@@ -6,6 +6,13 @@
     font-weight: 700;
     border:  2px solid black;
 }
+
+@media (max-width: 768px){
+.seat
+{
+    flex: 1 1 calc(33.33% - 16px);
+}
+}
 .divider{
     margin-top:6vh;
     margin-bottom:6vh;
@@ -100,6 +107,7 @@ h1{
     flex-wrap: wrap; /* Wrap buttons if needed */
     padding: 0; /* Remove padding */
     margin: 10vh; /* Remove margin */
+    gap: 16px;
 }
 
 /* Styling for the search results section */
