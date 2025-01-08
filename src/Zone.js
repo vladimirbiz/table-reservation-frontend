@@ -18,7 +18,7 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
 
     return (
         <div>{(seatId===undefined) ? (
-            <div>
+            <div className='div1'>
                 <h1 className='mainh1'>Table Reservations - Intermezzo</h1>
                 <Divider color={"black"} />
                 <div>

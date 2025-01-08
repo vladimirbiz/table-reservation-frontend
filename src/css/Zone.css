@@ -20,6 +20,9 @@
         width: 30vw;  /* Adjust width to be a percentage of the viewport width */
         height: 30vw; /* Height should match width to remain circular */
     }
+    .div1{
+        margin: 0;
+    }
 }
 .divider{
     margin-top:6vh;
