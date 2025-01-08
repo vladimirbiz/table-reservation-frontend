@@ -23,8 +23,7 @@ function NameForm({ changeData, setNameSetter, nameSetter }) {
 
     return (
         <div className="div-center">
-            <div className='name-div'>
-            <h1 className='name-h1'>Table reserved for:</h1>
+            <h1 className='name-h1'>Reserve for:</h1>
             <form onSubmit={handleDateChange}>
                 <input 
                     type="text" 
@@ -37,7 +36,6 @@ function NameForm({ changeData, setNameSetter, nameSetter }) {
                 
             </form>
             <button className='cancel-button' onClick={()=>handleCancel()}>Cancel</button>
-            </div>
         </div>
     );
 }

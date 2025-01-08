@@ -15,7 +15,6 @@
     border: 3px solid rgb(0, 0, 0);
     padding: 9px;
 }
-
 .name-button{
     display: block;
     margin: auto;
@@ -48,17 +47,10 @@
     color: rgb(0, 0, 0);            /* White text */
     font-size: 16px;         /* Font size */
     cursor: pointer;         /* Change cursor to pointer */
+    border: 1px solid black;
 
 }
-
 .cancel-button:hover{
     border: 2px solid black;
     padding: 8px; 
-}
-
-.name-div{
-    min-width: 300px;
-    padding-top: 7%;
-    align-items: center;
-    justify-content: center;
 }
