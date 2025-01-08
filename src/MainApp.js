@@ -72,7 +72,7 @@ function MainApp({ token, date }) {
 
         const intervalId = setInterval(() => {
             fetchInitialData2(); // Fetch every 5 seconds
-        }, 5000);
+        }, 60000);
 
         // Cleanup interval on component unmount or re-render
         return () => clearInterval(intervalId);

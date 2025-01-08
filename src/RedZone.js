@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./css/Zone.css";
 
-function RedZone({ changeData, getData, initialData, setSeeReservation, setSeatId, setSeatIdData, seatIdData }) {
+function RedZone({ changeData, getData, initialData, setSeatId, setSeatIdData }) {
   const [seatStates, setSeatStates] = useState(Array(147).fill(null)); // Initialize for 147 seats
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function RedZone({ changeData, getData, initialData, setSeeReservation, setSeatI
     console.log("In handle reservation: ")
     console.log({initialData});
       for (let i in initialData) {
-          if (initialData[i].id == seatId) {
+          if (Number(initialData[i].id) === seatId) {
               objvalue = initialData[i].value;
               objid = initialData[i].id;
               objname = initialData[i].name;
