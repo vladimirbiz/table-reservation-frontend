@@ -8,11 +8,8 @@ import "./css/Zone.css";
 
 function Zone({ getData, changeData,changeData2, initialData, handleReset, searchQuery, setSearchQuery, handleSearch, searchResults }) {
 
-    const [seeReservation, setSeeReservation] = useState(false);
     const [seatId, setSeatId] = useState(undefined);
     const [seatIdData, setSeatIdData] = useState(null);
-      let seatNumber;
-    let seatZone;
 
     // Update nameSetter when a seat is selected
     const addData = (id, value) => {
@@ -46,10 +43,10 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
         let seatZone;
 
         // Calculate seatNumber and seatZone based on guest.id
-        if (Number(guest.id) + 1 < 87) {
+        if (Number(guest.id) + 1 < 88) {
           seatNumber = Number(guest.id) + 1;
           seatZone = "RED";
-        } else if (Number(guest.id) + 1 < 138) {
+        } else if (Number(guest.id) + 1 < 139) {
           seatNumber = Number(guest.id) + 1 - 87;
           seatZone = "YELLOW";
         } else {
@@ -74,13 +71,13 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
 
                     </div>
                 <Divider color={"black"} />
-                <RedZone changeData={addData} getData={getData} initialData={initialData} setSeeReservation={setSeeReservation} setSeatId={setSeatId} setSeatIdData={setSeatIdData}/>
+                <RedZone changeData={addData} getData={getData} initialData={initialData} setSeatId={setSeatId} setSeatIdData={setSeatIdData}/>
                 <Divider color={"black"} />
 
-                <YellowZone changeData={addData} getData={getData} initialData={initialData} setSeeReservation={setSeeReservation} setSeatId={setSeatId} setSeatIdData={setSeatIdData}/>
+                <YellowZone changeData={addData} getData={getData} initialData={initialData} setSeatId={setSeatId} setSeatIdData={setSeatIdData}/>
 
                 <Divider color={"black"} />
-                <GreenZone changeData={addData} getData={getData} initialData={initialData} setSeeReservation={setSeeReservation} setSeatId={setSeatId} setSeatIdData={setSeatIdData}/>
+                <GreenZone changeData={addData} getData={getData} initialData={initialData} setSeatId={setSeatId} setSeatIdData={setSeatIdData}/>
                 <Divider color={"black"} />
                 <button onClick={handleReset}>reset</button>
             </div>) :

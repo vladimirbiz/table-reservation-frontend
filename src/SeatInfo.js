@@ -8,10 +8,10 @@ function SeatInfo({ id, name, setSeatId, changeData, value }) {
     // Simplify the logic for calculating seatNumber and seatZone
     const seatId = Number(id) + 1;
 
-    if (seatId < 87) {
+    if (seatId < 88) {
         seatNumber = seatId;
         seatZone = "RED";
-    } else if (seatId < 138) {
+    } else if (seatId < 139) {
         seatNumber = seatId - 87;
         seatZone = "YELLOW";
     } else {
