@@ -12,7 +12,7 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 16px;
-        margin: 10vw; /* Add space around the container */
+        margin: 0vw; /* Add space around the container */
     }
 
     .seat {
