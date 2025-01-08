@@ -20,7 +20,7 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
     };
 
     return (
-        <div>{!seatId ? (
+        <div>{(seatId===undefined) ? (
             <div>
                 <h1 className='mainh1'>Table Reservations - Intermezzo</h1>
                 <Divider color={"black"} />
@@ -84,7 +84,7 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
                 <Divider color={"black"} />
                 <button onClick={handleReset}>reset</button>
             </div>) :
-            <SeatInfo id={seatIdData.id} name={seatIdData.name} setSeatId={setSeatId} changeData={changeData}/>
+            <SeatInfo id={seatIdData.id} name={seatIdData.name} setSeatId={setSeatId} changeData={changeData} value={seatIdData.value}/>
         }
         
         </div>

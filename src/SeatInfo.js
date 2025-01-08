@@ -1,38 +1,45 @@
 import React from 'react';
 import './css/SeatInfo.css';
 
-function SeatInfo({ id, name, setSeatId, changeData }) {
+function SeatInfo({ id, name, setSeatId, changeData, value }) {
     let seatNumber;
     let seatZone;
-    if(Number(Number(id) + 1) < 87){
-        seatNumber = Number(Number(id) + 1);
+
+    // Simplify the logic for calculating seatNumber and seatZone
+    const seatId = Number(id) + 1;
+
+    if (seatId < 87) {
+        seatNumber = seatId;
         seatZone = "RED";
-    }
-    else{
-        if(Number(Number(id) + 1) < 138){
-            seatNumber = Number(Number(id) + 1) - 87;
-            seatZone = "YELLOW";
-        }
-        else{
-            seatNumber = Number(Number(id) + 1) - 138;
-            seatZone = "GREEN";
-        }
+    } else if (seatId < 138) {
+        seatNumber = seatId - 87;
+        seatZone = "YELLOW";
+    } else {
+        seatNumber = seatId - 138;
+        seatZone = "GREEN";
     }
 
     if (!id || !name) {
         return <div>No seat information available.</div>;
     }
 
+    // Render based on the value prop
     return (
         <div className='div-center'>
-            {/* <h3 className='date-h2'>ID: {id}</h3> */}
-            <h2 className='name-h2'>Table : {seatNumber} - {seatZone}</h2>
-            <h2 className='name-h2-2'>Name - {name}</h2>
-            <button className="seat-button" onClick={() => {changeData(id, 2, name); setSeatId(null)}} >Guest is seated</button>
-            <button className="seat-button" onClick={() => {changeData(id, 0, 'no-name'); setSeatId(null)}} >Cancel Reservation</button>
-            <button className="seat-button seat-button-done" onClick={()=>setSeatId(null)}>Done</button>
+            <h2 className='name-h2'>Table: {seatNumber} - {seatZone}</h2>
+            <h2 className='name-h2-2'>Name: {name}</h2>
+            {value === 1 ? (
+                <>
+                    <button className="seat-button" onClick={() => { changeData(id, 2, name); setSeatId(undefined); }}>Guest is seated</button>
+                    <button className="seat-button" onClick={() => { changeData(id, 0, 'no-name'); setSeatId(undefined); }}>Cancel Reservation</button>
+                </>
+            ) : (
+                <button className="seat-button" onClick={() => { changeData(id, 0, 'no-name'); setSeatId(undefined); }}>Cancel Reservation</button>
+            )}
+            <button className="seat-button seat-button-done" onClick={() => setSeatId(undefined)}>Done</button>
         </div>
     );
 }
 
 export default SeatInfo;
+
