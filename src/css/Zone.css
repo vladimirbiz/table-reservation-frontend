@@ -10,7 +10,7 @@
 @media (max-width: 768px){
 .seat
 {
-    flex: 1 1 calc(33.33% - 16px);
+    flex: 1 1 calc(33.33% - 5px);
 }
 }
 .divider{
