@@ -99,6 +99,17 @@ h1{
     margin-right:12vw;
     padding: 0px;
 }
+@media (max-width: 768px){
+    .seatDiv
+    {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .seat-block{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    }
 
 .seatDiv{
     display: flex;
@@ -108,6 +119,7 @@ h1{
     margin: 10vh; /* Remove margin */
     gap: 16px;
 }
+
 
 /* Styling for the search results section */
 .search-results {
