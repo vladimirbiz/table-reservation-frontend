@@ -16,7 +16,7 @@
     }
 
     .seat {
-        flex-basis: calc(33.33% - 10px); /* Ensures 3 seats per row with some margin */
+        flex-basis: calc(33.33% - 2px); /* Ensures 3 seats per row with some margin */
         width: 30vw;  /* Adjust width to be a percentage of the viewport width */
         height: 30vw; /* Height should match width to remain circular */
     }
