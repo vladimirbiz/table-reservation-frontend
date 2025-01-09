@@ -5,22 +5,6 @@
     font-weight: 700;
     border: 2px solid black;
 }
-
-@media (max-width: 768px){
-    .seatDiv {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 16px;
-        margin: 0vw; /* Add space around the container */
-    }
-    .div1{
-        margin: 0;
-    }
-    .seat {
-        flex-basis: calc(33.33% - 10px); /* Ensures 3 seats per row with some margin */
-    }
-}
 .divider{
     margin-top:6vh;
     margin-bottom:6vh;
@@ -204,3 +188,18 @@ h1{
 }
 
 /* Optional - to center the content */
+@media (max-width: 768px){
+    .seatDiv {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin: 0vw; /* Add space around the container */
+    }
+    .div1{
+        margin: 0;
+    }
+    .seat {
+        flex-basis: calc(33.33% - 10px); /* Ensures 3 seats per row with some margin */
+    }
+}
