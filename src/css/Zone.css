@@ -193,7 +193,7 @@ h1{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 3%;
         margin: 0vw; /* Add space around the container */
     }
     .div1{
