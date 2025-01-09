@@ -200,6 +200,6 @@ h1{
         margin: 0;
     }
     .seat {
-        flex-basis: calc(33.33% - 10px); /* Ensures 3 seats per row with some margin */
+        flex-basis: calc(30%); /* Ensures 3 seats per row with some margin */
     }
 }
