@@ -200,7 +200,7 @@ h1{
         margin: 0;
     }
     .seat {
-        flex-basis: calc(26%); /* Ensures 3 seats per row with some margin */
-        margin: 1vw;
+        flex-basis: calc(22%); /* Ensures 3 seats per row with some margin */
+        margin: 3vw;
     }
 }
