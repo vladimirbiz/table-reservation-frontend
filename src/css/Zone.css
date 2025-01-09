@@ -194,12 +194,13 @@ h1{
         justify-content: center;
         flex-wrap: wrap;
         gap: 3%;
-        margin: 3vw; /* Add space around the container */
+        margin: 0vw; /* Add space around the container */
     }
     .div1{
         margin: 0;
     }
     .seat {
         flex-basis: calc(26%); /* Ensures 3 seats per row with some margin */
+        margin: 3vw;
     }
 }
