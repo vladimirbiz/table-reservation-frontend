@@ -21,21 +21,21 @@
     border-color: whitesmoke;
 }
 .white-green{
-    color: rgb(62, 172, 62);
+    color: rgb(42, 122, 42);
     background-color: white;
-    border-color: rgb(62, 172, 62);
+    border-color: rgb(42, 122, 42);
 }
 
 .white-red{
-    color: rgb(195, 38, 38);
+    color: rgb(125, 38, 38);
     background-color: white;
-    border-color: rgb(195, 38, 38);
+    border-color: rgb(125, 38, 38);
 }
 
 .white-yellow{
-    color: rgb(207, 207, 30);
+    color: rgb(120, 120, 30);
     background-color: white;
-    border-color:rgb(207, 207, 30);
+    border-color:rgb(120, 120, 30);
 }
 
 .white{
@@ -100,7 +100,7 @@ h1{
     flex-wrap: wrap; /* Wrap buttons if needed */
     padding: 0; /* Remove padding */
     margin: 10vh; /* Remove margin */
-    gap: 16px;
+    gap: 20px; /* from 16 to 20 */
 }
 
 
