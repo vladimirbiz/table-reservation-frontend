@@ -10,13 +10,13 @@ function SeatInfo({ id, name, setSeatId, changeData, value }) {
 
     if (seatId < 88) {
         seatNumber = seatId;
-        seatZone = "RED";
+        seatZone = "Red";
     } else if (seatId < 139) {
         seatNumber = seatId - 87;
-        seatZone = "YELLOW";
+        seatZone = "Yellow";
     } else {
         seatNumber = seatId - 138;
-        seatZone = "GREEN";
+        seatZone = "Green";
     }
 
     if (!id || !name) {
@@ -26,8 +26,8 @@ function SeatInfo({ id, name, setSeatId, changeData, value }) {
     // Render based on the value prop
     return (
         <div className='div-center'>
-            <h2 className='name-h2'>Table: {seatNumber} - {seatZone}</h2>
-            <h2 className='name-h2-2'>Name: {name}</h2>
+            <h2 className='name-h2'>Table {seatNumber} - {seatZone} Zone</h2>
+            <h2 className='name-h2-2'>{name}</h2>
             {value === 1 ? (
                 <>
                     <button className="seat-button" onClick={() => { changeData(id, 2, name); setSeatId(undefined); }}>Guest is seated</button>

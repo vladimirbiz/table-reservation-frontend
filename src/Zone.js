@@ -45,21 +45,21 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
         // Calculate seatNumber and seatZone based on guest.id
         if (Number(guest.id) + 1 < 88) {
           seatNumber = Number(guest.id) + 1;
-          seatZone = "RED";
+          seatZone = "Red";
         } else if (Number(guest.id) + 1 < 139) {
           seatNumber = Number(guest.id) + 1 - 87;
-          seatZone = "YELLOW";
+          seatZone = "Yellow";
         } else {
           seatNumber = Number(guest.id) + 1 - 138;
-          seatZone = "GREEN";
+          seatZone = "Green";
         }
 
         return (
           <div key={guest.id}>
             <p>Name: {guest.name}</p>
-            <p>Reservation Status: {guest.value ? "Reserved" : "Available"}</p>
-            <p>Table - {seatNumber}</p>
-            <p>Zone - {seatZone}</p>
+            <p>Status: {guest.value ? "Reserved" : "Available"}</p>
+            <p>Table {seatNumber}</p>
+            <p>{seatZone} Zone</p>
           </div>
         );
       })
