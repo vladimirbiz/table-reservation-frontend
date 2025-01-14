@@ -54,3 +54,13 @@
     border: 2px solid black;
     padding: 8px; 
 }
+
+@media (max-width: 768px){
+    .cancel-button{
+        width: 60%;
+        
+    }
+    .name-button{
+        width: 60%;
+    }
+  }

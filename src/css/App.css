@@ -61,3 +61,9 @@ input, textarea {
   font-size: 16px;   
   text-align: center;      /* Font size */
 }
+
+@media (max-width: 768px){
+  input, textarea{
+    width: 80%;
+  }
+}

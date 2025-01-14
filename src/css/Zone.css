@@ -201,7 +201,9 @@ h1{
     }
     .seat {
         flex-basis: calc(15.5%); /* Ensures 3 seats per row with some margin */
-        margin-top: 3.5vw;
+        margin: 5.5vw;
+        margin-top: 3vw;
+        margin-bottom: 1vw;
         border-width: 3px;
     }
 }
