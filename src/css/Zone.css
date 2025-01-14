@@ -21,19 +21,19 @@
     border-color: whitesmoke;
 }
 .white-green{
-    color: rgb(42, 122, 42);
+    color: black;
     background-color: white;
     border-color: rgb(42, 122, 42);
 }
 
 .white-red{
-    color: rgb(125, 38, 38);
+    color: black;
     background-color: white;
     border-color: rgb(125, 38, 38);
 }
 
 .white-yellow{
-    color: rgb(120, 120, 30);
+    color: black;
     background-color: white;
     border-color:rgb(120, 120, 30);
 }
@@ -201,6 +201,6 @@ h1{
     }
     .seat {
         flex-basis: calc(15%); /* Ensures 3 seats per row with some margin */
-        margin: 4vw;
+        margin: 5vw;
     }
 }
