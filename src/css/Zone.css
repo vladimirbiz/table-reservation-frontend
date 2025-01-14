@@ -193,14 +193,14 @@ h1{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 0%;
+        gap: 0;
         margin: 0vw; /* Add space around the container */
     }
     .div1{
         margin: 0;
     }
     .seat {
-        flex-basis: calc(17%); /* Ensures 3 seats per row with some margin */
-        margin: 6vw;
+        flex-basis: calc(15%); /* Ensures 3 seats per row with some margin */
+        margin: 4vw;
     }
 }
