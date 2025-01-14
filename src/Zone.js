@@ -29,6 +29,7 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
                             placeholder="Search for a Reservation"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
+                            className='search-input'
                         />
                         <button onClick={handleSearch}>Search</button>
                     </div>

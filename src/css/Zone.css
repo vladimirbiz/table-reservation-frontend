@@ -51,7 +51,7 @@
 }
 
 .black{
-    background-color: black;
+    background-color: rgb(44, 43, 43);
     color: white;
 }
 
@@ -152,14 +152,14 @@ h1{
     font-size: 16px;
     width: 250px; /* Adjust width as needed */
     border-radius: 0px;
-    border: 2px solid #ccc;
+    border: 2px solid #6d6969;
     outline: none;
     transition: border-color 0.3s;
     height: 40px;
 }
 
 .search-section input:focus {
-    border-color: #5e5e5e; /* Highlight border on focus */
+    border-color: #6d6969; /* Highlight border on focus */
 }
 
 .search-section button {
@@ -169,8 +169,8 @@ h1{
     padding: 10px 10px;
     font-size: 16px;
     background-color: #ffffff;
-    color: rgb(118, 118, 118);
-    border: 2px solid rgb(187, 187, 187);
+    color: #6d6969;
+    border: 2px solid #6d6969;
     border-radius: 0px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -179,8 +179,8 @@ h1{
 
 .search-section button:hover {
     background-color: #fefefe; /* Darker blue on hover */
-    color: #717171;
-    border: 2px solid gray;
+    color: #6d6969;
+    border: 2px solid rgb(48, 47, 47);
 }
 
 .search-section button:active {
@@ -202,7 +202,7 @@ h1{
     .seat {
         flex-basis: calc(15.5%); /* Ensures 3 seats per row with some margin */
         margin: 5.5vw;
-        margin-top: 3vw;
+        margin-top: 3.5vw;
         margin-bottom: 1vw;
         border-width: 3px;
     }

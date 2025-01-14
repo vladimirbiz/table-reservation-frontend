@@ -63,4 +63,9 @@
     .name-button{
         width: 60%;
     }
+    .name-input{
+        width: 60%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
   }
