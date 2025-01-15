@@ -17,13 +17,25 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
     };
     
     console.log(getDayOfWeek(15, 1));  // Example: Pass 15 for day and 1 for month (January)
+
+    function getReserved(){
+      if (!initialData) {
+        return; // Prevent calling getData if initialData isn't available
+      }
+      let counter = 0;
+      for(let i = 0; i < initialData.length; i++){
+        if(initialData[i].value > 0)
+          counter++;
+      }
+      return counter;
+    }
     
 
     return (
         <div>{(seatId===undefined) ? (
             <div className='div1'>
                 <h1 className='mainh1'>Table Reservations - Intermezzo<br></br><br></br>
-                {date}/{date2}   {getDayOfWeek(date,date2)}
+                {date}/{date2}   {getDayOfWeek(date,date2)}<br></br>
                 </h1>
                 <Divider color={"black"} />
                 <div>
@@ -85,7 +97,8 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
                 <Divider color={"black"} />
                 <GreenZone changeData={addData} getData={getData} initialData={initialData} setSeatId={setSeatId} setSeatIdData={setSeatIdData}/>
                 <Divider color={"black"} />
-                <button onClick={handleReset}>reset</button>
+                <h4 className='h4-reserved'>Reserved {getReserved()} / 138</h4>
+                {/* <button onClick={handleReset}>reset</button> */}
             </div>) :
             <SeatInfo id={seatIdData.id} name={seatIdData.name} setSeatId={setSeatId} changeData={changeData} value={seatIdData.value}/>
         }

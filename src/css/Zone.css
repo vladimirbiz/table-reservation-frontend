@@ -207,3 +207,8 @@ h1{
         border-width: 3px;
     }
 }
+.h4-reserved{
+    text-align: center;
+    margin-top: 5px;
+    padding-bottom: 30px;
+}
