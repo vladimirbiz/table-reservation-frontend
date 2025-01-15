@@ -6,7 +6,7 @@ import Divider from './Divider';
 import SeatInfo from './SeatInfo';
 import "./css/Zone.css";
 
-function Zone({ getData, changeData,changeData2, initialData, handleReset, searchQuery, setSearchQuery, handleSearch, searchResults }) {
+function Zone({ getData, changeData,changeData2, initialData, handleReset, searchQuery, setSearchQuery, handleSearch, searchResults, date, date2, getDayOfWeek }) {
 
     const [seatId, setSeatId] = useState(undefined);
     const [seatIdData, setSeatIdData] = useState(null);
@@ -15,11 +15,16 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
     const addData = (id, value) => {
         changeData2({ id:id, value:value, name:''});
     };
+    
+    console.log(getDayOfWeek(15, 1));  // Example: Pass 15 for day and 1 for month (January)
+    
 
     return (
         <div>{(seatId===undefined) ? (
             <div className='div1'>
-                <h1 className='mainh1'>Table Reservations - Intermezzo</h1>
+                <h1 className='mainh1'>Table Reservations - Intermezzo<br></br><br></br>
+                {date}/{date2}   {getDayOfWeek(date,date2)}
+                </h1>
                 <Divider color={"black"} />
                 <div>
                     {/* Add search input field here */}

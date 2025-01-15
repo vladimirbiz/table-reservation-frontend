@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./css/DatePicker.css";
 
-function DatePicker({ setDate }) {
+function DatePicker({ setDate, setDate2 }) {
     const today = new Date();
     const [day, setDay] = useState(today.getDate());
     const [month, setMonth] = useState(new Date().getMonth() + 1); // Default to current month
@@ -23,6 +23,7 @@ function DatePicker({ setDate }) {
             const formattedDate = `${day}-${month}`; // Format as dd-mm
             console.log("Selected Date: " + formattedDate);
             setDate(day); // Call the setDate function with the day value
+            setDate2(month);
         }
     };
 

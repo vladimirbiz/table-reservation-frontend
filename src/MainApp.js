@@ -4,7 +4,7 @@ import "./css/MainApp.css";
 import Zone from './Zone';
 import NameForm from './NameForm'; // Import NameForm
 
-function MainApp({ token, date }) {
+function MainApp({ token, date, date2 }) {
     const [loading, setLoading] = useState(true);
     const [initialData, setInitialData] = useState(null);
     const [nameSetter, setNameSetter] = useState(null); // Holds id, value, and name for reservation
@@ -52,6 +52,14 @@ function MainApp({ token, date }) {
             setLoading(false);
         }
     }, [date, token]);
+
+    function getDayOfWeek(day, month) {
+        const daysOfWeek = ["Nedela", "Ponedelnik", "Vtornik", "Sreda", "Cetvrtok", "Petok", "Sabota"];
+        const currentYear = new Date().getFullYear(); // Get the current year
+        const date = new Date(currentYear, month - 1, day); // Month is 0-indexed, so subtract 1
+        const dayIndex = date.getDay();
+        return daysOfWeek[dayIndex];
+      }
 
     const fetchInitialData2 = useCallback(async () => {
         try {
@@ -145,7 +153,9 @@ function MainApp({ token, date }) {
                     <div className="seat-block">
                         {loading && (
                             <div>
-                                <h1 className='mainh1'>Table Reservations - Intermezzo</h1>
+                                <h1 className='mainh1'>Table Reservations - Intermezzo<br></br><br></br>
+                {date}/{date2}   {getDayOfWeek(date,date2)}
+                </h1>
                                 <div className="loading-bar-container">
                                     <div className="loading-bar"></div>
                                 </div>
@@ -162,6 +172,9 @@ function MainApp({ token, date }) {
                             setSearchQuery={setSearchQuery}
                             handleSearch={handleSearch} 
                             searchResults={searchResults}
+                            date={date}
+                            date2={date2}
+                            getDayOfWeek={getDayOfWeek}
                         />
                     </div>
             )}

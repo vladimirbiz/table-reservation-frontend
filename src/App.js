@@ -7,6 +7,7 @@ import "./css/App.css";
 function App() {
     const [token, setToken] = useState(null);
     const [date, setDate] = useState(null);
+    const [date2, setDate2] = useState(null);
 
     const handleSignIn = (token) => {
         setToken(token);
@@ -19,9 +20,9 @@ function App() {
             {!token ? (
                 <SignIn onSignIn={handleSignIn} />
             ) : date ? (
-                <MainApp token={token} date={date} /> // Pass the token to MainApp
+                <MainApp token={token} date={date} date2={date2} /> // Pass the token to MainApp
             ) : (
-                <DatePicker setDate={setDate} /> // Pass setDate to DatePicker
+                <DatePicker setDate={setDate} setDate2={setDate2}/> // Pass setDate to DatePicker
             )}
         </div>
     );

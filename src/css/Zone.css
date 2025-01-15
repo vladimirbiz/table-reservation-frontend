@@ -3,7 +3,7 @@
     height: 46px;
     border-radius: 50%; /* Ensure it's fully circular */
     font-weight: 700;
-    border: 2px solid black;
+    border: 3px solid black;
 }
 .divider{
     margin-top:6vh;
