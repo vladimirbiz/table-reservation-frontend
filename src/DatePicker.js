@@ -30,6 +30,8 @@ function DatePicker({ setDate, setDate2, getDayOfWeek }) {
     return (
         <div className="div-center">
             <h1>Select a Date</h1>
+            
+            <div className='getDayOfWeek-div'>{getDayOfWeek(day,month)}</div>
             <form onSubmit={handleDateChange}>
                 <select
                     className='date-select'
@@ -65,7 +67,6 @@ function DatePicker({ setDate, setDate2, getDayOfWeek }) {
                 </select>
                 <button className="date-button" type="submit">Submit</button>
             </form>
-            <div className='getDayOfWeek-div'>{getDayOfWeek(day,month)}</div>
         </div>
         
     );

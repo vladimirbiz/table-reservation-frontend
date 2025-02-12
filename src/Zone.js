@@ -33,11 +33,10 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
     return (
         <div>{(seatId===undefined) ? (
             <div className='div1'>
-                <h1 className='mainh1'>Table Reservations - Intermezzo<br></br><br></br>
+                <h1 className='mainh1'>Reservations - {date}/{date2}<br></br><br></br>
                 <div className='zone-container'>
-                <span>{date}/{date2}   {getDayOfWeek(date,date2)}<br></br></span>
                 <button onClick={()=>setDate()} className='button1'>Change Date</button>
-                 <span className='h4-reserved'>Reserved {getReserved()} / 138</span>
+                 <span className='h4-reserved'>{getReserved()} / 138</span>
                  </div>
                 </h1>
                 <Divider color={"black"} />
