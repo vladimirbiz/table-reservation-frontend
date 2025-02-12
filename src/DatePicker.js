@@ -29,7 +29,7 @@ function DatePicker({ setDate, setDate2, getDayOfWeek }) {
 
     return (
         <div className="div-center">
-            <h1>Select a Date</h1>
+            <h1 className='selectadate-h1'>Select a Date</h1>
             
             <div className='getDayOfWeek-div'>{getDayOfWeek(day,month)}</div>
             <form onSubmit={handleDateChange}>
