@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./css/SignIn.css";
 
-const SignIn = ({ onSignIn }) => {
+const SignIn = ({ onSignIn, setUser }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -23,6 +23,7 @@ const SignIn = ({ onSignIn }) => {
     
             const data = await response.json();
             console.log(data);
+            setUser(email);
             onSignIn(data.accessToken);
         } catch (err) {
             setError(err.message);

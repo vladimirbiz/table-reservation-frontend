@@ -4,7 +4,7 @@ import "./css/MainApp.css";
 import Zone from './Zone';
 import NameForm from './NameForm'; // Import NameForm
 
-function MainApp({ token, date, date2, setDate, getDayOfWeek }) {
+function MainApp({ token, date, date2, setDate, getDayOfWeek, user }) {
     const [loading, setLoading] = useState(true);
     const [initialData, setInitialData] = useState(null);
     const [nameSetter, setNameSetter] = useState(null); // Holds id, value, and name for reservation
@@ -17,7 +17,7 @@ function MainApp({ token, date, date2, setDate, getDayOfWeek }) {
         await new Promise(resolve => setTimeout(resolve, 1050)); // Simulate loading delay
         try {
             const response = await axios.put(
-                `https://tables-api-latest.onrender.com/tables/${date}/${id}/${value}/${name}`,
+                `https://tables-api-latest.onrender.com/tables/${date}/${id}/${value}/${name}/${user}`,
                 {},
                 {
                     headers: {
