@@ -4,7 +4,7 @@ import "./css/MainApp.css";
 import Zone from './Zone';
 import NameForm from './NameForm'; // Import NameForm
 
-function MainApp({ token, date, date2 }) {
+function MainApp({ token, date, date2, setDate, getDayOfWeek }) {
     const [loading, setLoading] = useState(true);
     const [initialData, setInitialData] = useState(null);
     const [nameSetter, setNameSetter] = useState(null); // Holds id, value, and name for reservation
@@ -52,14 +52,6 @@ function MainApp({ token, date, date2 }) {
             setLoading(false);
         }
     }, [date, token]);
-
-    function getDayOfWeek(day, month) {
-        const daysOfWeek = ["Nedela", "Ponedelnik", "Vtornik", "Sreda", "Cetvrtok", "Petok", "Sabota"];
-        const currentYear = new Date().getFullYear(); // Get the current year
-        const date = new Date(currentYear, month - 1, day); // Month is 0-indexed, so subtract 1
-        const dayIndex = date.getDay();
-        return daysOfWeek[dayIndex];
-      }
 
     const fetchInitialData2 = useCallback(async () => {
         try {
@@ -175,6 +167,7 @@ function MainApp({ token, date, date2 }) {
                             date={date}
                             date2={date2}
                             getDayOfWeek={getDayOfWeek}
+                            setDate={setDate}
                         />
                     </div>
             )}

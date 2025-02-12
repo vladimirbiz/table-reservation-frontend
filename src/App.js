@@ -15,14 +15,22 @@ function App() {
         console.log({localStorage});
     };
 
+    function getDayOfWeek(day, month) {
+        const daysOfWeek = ["Nedela", "Ponedelnik", "Vtornik", "Sreda", "Cetvrtok", "Petok", "Sabota"];
+        const currentYear = new Date().getFullYear(); // Get the current year
+        const date = new Date(currentYear, month - 1, day); // Month is 0-indexed, so subtract 1
+        const dayIndex = date.getDay();
+        return daysOfWeek[dayIndex];
+      }
+
     return (
         <div>
             {!token ? (
                 <SignIn onSignIn={handleSignIn} />
             ) : date ? (
-                <MainApp token={token} date={date} date2={date2} /> // Pass the token to MainApp
+                <MainApp token={token} date={date} date2={date2} setDate={setDate} getDayOfWeek={getDayOfWeek}/> // Pass the token to MainApp
             ) : (
-                <DatePicker setDate={setDate} setDate2={setDate2}/> // Pass setDate to DatePicker
+                <DatePicker setDate={setDate} setDate2={setDate2} getDayOfWeek={getDayOfWeek}/> // Pass setDate to DatePicker
             )}
         </div>
     );

@@ -6,7 +6,7 @@ import Divider from './Divider';
 import SeatInfo from './SeatInfo';
 import "./css/Zone.css";
 
-function Zone({ getData, changeData,changeData2, initialData, handleReset, searchQuery, setSearchQuery, handleSearch, searchResults, date, date2, getDayOfWeek }) {
+function Zone({ getData, changeData,changeData2, initialData, handleReset, searchQuery, setSearchQuery, handleSearch, searchResults, date, date2, getDayOfWeek, setDate }) {
 
     const [seatId, setSeatId] = useState(undefined);
     const [seatIdData, setSeatIdData] = useState(null);
@@ -15,8 +15,7 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
     const addData = (id, value) => {
         changeData2({ id:id, value:value, name:''});
     };
-    
-    console.log(getDayOfWeek(15, 1));  // Example: Pass 15 for day and 1 for month (January)
+
 
     function getReserved(){
       if (!initialData) {
@@ -35,7 +34,11 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
         <div>{(seatId===undefined) ? (
             <div className='div1'>
                 <h1 className='mainh1'>Table Reservations - Intermezzo<br></br><br></br>
-                {date}/{date2}   {getDayOfWeek(date,date2)}<br></br>
+                <div className='zone-container'>
+                <span>{date}/{date2}   {getDayOfWeek(date,date2)}<br></br></span>
+                <button onClick={()=>setDate()} className='button1'>Change Date</button>
+                 <span className='h4-reserved'>Reserved {getReserved()} / 138</span>
+                 </div>
                 </h1>
                 <Divider color={"black"} />
                 <div>
@@ -97,7 +100,6 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
                 <Divider color={"black"} />
                 <GreenZone changeData={addData} getData={getData} initialData={initialData} setSeatId={setSeatId} setSeatIdData={setSeatIdData}/>
                 <Divider color={"black"} />
-                <h4 className='h4-reserved'>Reserved {getReserved()} / 138</h4>
                 {/* <button onClick={handleReset}>reset</button> */}
             </div>) :
             <SeatInfo id={seatIdData.id} name={seatIdData.name} setSeatId={setSeatId} changeData={changeData} value={seatIdData.value}/>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./css/DatePicker.css";
 
-function DatePicker({ setDate, setDate2 }) {
+function DatePicker({ setDate, setDate2, getDayOfWeek }) {
     const today = new Date();
     const [day, setDay] = useState(today.getDate());
     const [month, setMonth] = useState(new Date().getMonth() + 1); // Default to current month
@@ -65,7 +65,9 @@ function DatePicker({ setDate, setDate2 }) {
                 </select>
                 <button className="date-button" type="submit">Submit</button>
             </form>
+            <div className='getDayOfWeek-div'>{getDayOfWeek(day,month)}</div>
         </div>
+        
     );
 }
 
