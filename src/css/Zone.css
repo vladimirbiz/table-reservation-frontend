@@ -246,6 +246,6 @@ h1{
 }
 
 .map-div img{
-    display: none;
+    display: block;
     margin: auto;
 }
