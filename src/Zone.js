@@ -90,6 +90,9 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
 )}
 
                     </div>
+                    <div className='map-div'>
+        <img src='https://i.imgur.com/hsmxJFD.jpeg' onError={() =>(console.log("Failed to load IMAGE"))}/>
+        </div>
                 <Divider color={"black"} />
                 <RedZone changeData={addData} getData={getData} initialData={initialData} setSeatId={setSeatId} setSeatIdData={setSeatIdData}/>
                 <Divider color={"black"} />

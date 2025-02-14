@@ -227,6 +227,10 @@ h1{
         margin-bottom: 20px;
     
     }
+    .map-div img{
+        display: block;
+        margin: auto;
+    }
 }
 .h4-reserved{
     text-align: center;
@@ -239,4 +243,9 @@ h1{
 }
 .button1:hover{
     border: none;
+}
+
+.map-div img{
+    display: none;
+    margin: auto;
 }
