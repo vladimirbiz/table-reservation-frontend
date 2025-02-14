@@ -248,4 +248,5 @@ h1{
 .map-div img{
     display: block;
     margin: auto;
+    max-width: 100%;
 }

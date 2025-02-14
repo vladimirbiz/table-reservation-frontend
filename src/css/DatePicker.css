@@ -24,20 +24,33 @@
     width: 40%;            
     padding: 10px;           
     border: none;            
-    background-color: black;
-    color: white;           
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0); 
+    border: 3px solid black;          
+    font-size: 16px;        
+    cursor: pointer;         /* Change cursor to pointer */ 
+}
+.date-button:hover{
+    display: block;
+    margin: auto;
+    margin-top: 5vh;
+    width: 40%;            
+    padding: 10px;           
+    border: none;            
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0); 
+    border: 3px solid black;          
     font-size: 16px;        
     cursor: pointer;         /* Change cursor to pointer */ 
 }
 
-.date-button:hover{
-    padding: 8px;
-}
 .getDayOfWeek-div{
     text-align: center;
-    margin-top: 0px;
+    margin-bottom: 40px;
     font-weight: bold;
+    font-size: large;
 }
 .selectadate-h1{
-    margin-bottom: 5px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
