@@ -36,9 +36,9 @@ const SignIn = ({ onSignIn, setReservationBy}) => {
         <form className="div-center styledForm" onSubmit={handleSubmit}>
         <h1 className='signInh1'>Sign In</h1>
             <div>
-                <label className='label-signIn'>Email</label>
+                <label className='label-signIn'>Username</label>
                 <input
-                    type="email"
+                    type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
