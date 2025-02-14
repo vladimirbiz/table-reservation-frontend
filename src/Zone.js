@@ -47,10 +47,11 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
                             type="text"
                             placeholder="Search for a Reservation"
                             value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onChange={(e) => {setSearchQuery(e.target.value);
+                              handleSearch();}
+                            }
                             className='search-input'
                         />
-                        <button onClick={handleSearch}>Search</button>
                     </div>
                     {searchResults && <Divider color={"black"} />}
 
@@ -90,6 +91,7 @@ function Zone({ getData, changeData,changeData2, initialData, handleReset, searc
 )}
 
                     </div>
+                    <Divider color={"black"}/>
                     <div className='map-div'>
         <img src='https://i.imgur.com/CplK5xr.jpeg' onError={() =>(console.log("Failed to load IMAGE"))}/>
         </div>
