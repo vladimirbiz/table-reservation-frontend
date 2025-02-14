@@ -26,7 +26,7 @@ function SeatInfo({ id, name, setSeatId, changeData, value }) {
     // Render based on the value prop
     return (
         <div className='div-center'>
-            <h2 className='name-h2'>Table {seatNumber} - {seatZone} Zone</h2>
+            <h2 className='name-h2'>{seatNumber} - {seatZone}</h2>
             <h2 className='name-h2-2'>{name}</h2>
             {value === 1 ? (
                 <>

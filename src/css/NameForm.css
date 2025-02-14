@@ -18,7 +18,7 @@
 .name-button{
     display: block;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 60px;
     width: 40%;             /* Full width of the button */
     padding: 10px;           /* Padding inside the button */
     border: none;            /* Remove default border */
@@ -34,12 +34,13 @@
 
 .name-h1{
     margin-bottom: 14%;
+    margin-top: 70px;
 }
 
 .cancel-button{
     display: block;
     margin: auto;
-    margin-top: 15px;
+    margin-top: 20px;
     width: 40%;             /* Full width of the button */
     padding: 10px;           /* Padding inside the button */
     border: none;            /* Remove default border */
